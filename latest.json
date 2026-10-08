@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "players": {
+    "TenZ": {"checkedAt": null, "vod": null, "weapons": {}},
+    "t3xture": {"checkedAt": null, "vod": null, "weapons": {}},
+    "aspas": {"checkedAt": null, "vod": null, "weapons": {}},
+    "something": {"checkedAt": null, "vod": null, "weapons": {}}
+  }
+}
