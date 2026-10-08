@@ -1,0 +1,26 @@
+{
+  "TenZ|https://www.twitch.tv/videos/2894146974": {
+    "scanned_at": "2026-10-08T07:30:13.734243+00:00",
+    "status": "no_collection"
+  },
+  "TenZ|https://www.youtube.com/watch?v=kb0gqpZzynY": {
+    "scanned_at": "2026-10-08T07:30:13.734243+00:00",
+    "status": "error"
+  },
+  "aspas|https://www.twitch.tv/aspaszin/videos?filter=archives&sort=time": {
+    "scanned_at": "2026-10-08T07:30:13.734243+00:00",
+    "status": "error"
+  },
+  "aspas|https://www.youtube.com/watch?v=N0Ted78Ysu0": {
+    "scanned_at": "2026-10-08T07:30:13.734243+00:00",
+    "status": "error"
+  },
+  "t3xture|https://www.twitch.tv/t3xturekr/videos?filter=archives&sort=time": {
+    "scanned_at": "2026-10-08T07:30:13.734243+00:00",
+    "status": "error"
+  },
+  "something|https://www.twitch.tv/smthlikeyou11/videos?filter=archives&sort=time": {
+    "scanned_at": "2026-10-08T07:30:13.734243+00:00",
+    "status": "error"
+  }
+}

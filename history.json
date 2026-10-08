@@ -1,0 +1,82 @@
+[
+  {
+    "player": "TenZ",
+    "url": "https://www.twitch.tv/videos/2894146974",
+    "title": "T1 vs. NRG VCT CHAMPIONS",
+    "scanned_at": "2026-10-08T07:30:18.148346+00:00",
+    "status": "no_collection",
+    "candidates": [],
+    "collection_seen": false,
+    "errors": []
+  },
+  {
+    "player": "TenZ",
+    "url": "https://www.youtube.com/watch?v=kb0gqpZzynY",
+    "title": "T1 vs NRG",
+    "scanned_at": "2026-10-08T07:37:21.785490+00:00",
+    "status": "error",
+    "candidates": [],
+    "collection_seen": false,
+    "errors": [
+      "Command '['yt-dlp', '--no-playlist', '--no-warnings', '-f', 'b[height<=480]/b', '--download-sections', '*0-540', '--force-keyframes-at-cuts', '--merge-output-format', 'mp4', '--socket-timeout', '20', '-o', '/tmp/val-live",
+      "Command '['yt-dlp', '--no-playlist', '--no-warnings', '-f', 'b[height<=480]/b', '--download-sections', '*18887-19427', '--force-keyframes-at-cuts', '--merge-output-format', 'mp4', '--socket-timeout', '20', '-o', '/tmp/va",
+      "Command '['yt-dlp', '--no-playlist', '--no-warnings', '-f', 'b[height<=480]/b', '--download-sections', '*37774-38314', '--force-keyframes-at-cuts', '--merge-output-format', 'mp4', '--socket-timeout', '20', '-o', '/tmp/va"
+    ]
+  },
+  {
+    "player": "aspas",
+    "url": "https://www.twitch.tv/aspaszin/videos?filter=archives&sort=time",
+    "title": "aspaszin - Past Broadcasts sorted by Date",
+    "scanned_at": "2026-10-08T07:37:25.063912+00:00",
+    "status": "error",
+    "candidates": [],
+    "collection_seen": false,
+    "errors": [
+      "VOD 구간을 내려받을 수 없습니다.",
+      "VOD 구간을 내려받을 수 없습니다.",
+      "VOD 구간을 내려받을 수 없습니다."
+    ]
+  },
+  {
+    "player": "aspas",
+    "url": "https://www.youtube.com/watch?v=N0Ted78Ysu0",
+    "title": "@aspaszin socials | 🌪️🌪️🌪️🌪️ |",
+    "scanned_at": "2026-10-08T07:37:26.559237+00:00",
+    "status": "error",
+    "candidates": [],
+    "collection_seen": false,
+    "errors": [
+      "Command '['yt-dlp', '--no-playlist', '--no-warnings', '-f', 'b[height<=480]/b', '--download-sections', '*0-540', '--force-keyframes-at-cuts', '--merge-output-format', 'mp4', '--socket-timeout', '20', '-o', '/tmp/val-live",
+      "Command '['yt-dlp', '--no-playlist', '--no-warnings', '-f', 'b[height<=480]/b', '--download-sections', '*667-1207', '--force-keyframes-at-cuts', '--merge-output-format', 'mp4', '--socket-timeout', '20', '-o', '/tmp/val-l",
+      "Command '['yt-dlp', '--no-playlist', '--no-warnings', '-f', 'b[height<=480]/b', '--download-sections', '*1334-1874', '--force-keyframes-at-cuts', '--merge-output-format', 'mp4', '--socket-timeout', '20', '-o', '/tmp/val-"
+    ]
+  },
+  {
+    "player": "t3xture",
+    "url": "https://www.twitch.tv/t3xturekr/videos?filter=archives&sort=time",
+    "title": "t3xturekr - Past Broadcasts sorted by Date",
+    "scanned_at": "2026-10-08T07:37:30.228557+00:00",
+    "status": "error",
+    "candidates": [],
+    "collection_seen": false,
+    "errors": [
+      "VOD 구간을 내려받을 수 없습니다.",
+      "VOD 구간을 내려받을 수 없습니다.",
+      "VOD 구간을 내려받을 수 없습니다."
+    ]
+  },
+  {
+    "player": "something",
+    "url": "https://www.twitch.tv/smthlikeyou11/videos?filter=archives&sort=time",
+    "title": "smthlikeyou11 - Past Broadcasts sorted by Date",
+    "scanned_at": "2026-10-08T07:37:31.783739+00:00",
+    "status": "error",
+    "candidates": [],
+    "collection_seen": false,
+    "errors": [
+      "VOD 구간을 내려받을 수 없습니다.",
+      "VOD 구간을 내려받을 수 없습니다.",
+      "VOD 구간을 내려받을 수 없습니다."
+    ]
+  }
+]

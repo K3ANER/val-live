@@ -4,9 +4,9 @@
     "TenZ": {
       "checkedAt": null,
       "vod": {
-        "url": "https://www.youtube.com/watch?v=h7iLMKoGLLc",
-        "title": "TenZ SHOWS WHY VYSE IS *BROKEN* ON SUMMIT !!!",
-        "publishedAt": "2026-10-04"
+        "url": "https://www.twitch.tv/videos/2894146974",
+        "title": "T1 vs. NRG VCT CHAMPIONS",
+        "publishedAt": null
       },
       "weapons": {},
       "analysis": {
@@ -16,85 +16,139 @@
       },
       "channels": [
         {
+          "label": "Twitch",
+          "url": "https://www.twitch.tv/tenz"
+        },
+        {
           "label": "YouTube",
           "url": "https://www.youtube.com/@TenZ"
         },
         {
-          "label": "Twitch",
-          "url": "https://www.twitch.tv/tenz"
+          "label": "YouTube",
+          "url": "https://www.youtube.com/@tenzreplay/videos"
         }
       ],
       "sourceCheck": {
-        "status": "vod_found_unverified",
-        "message": "2026-10-07 최신 방송 기록 확인. 영상 화면/스킨 컬렉션은 아직 확인하지 못해 스킨 미확인."
+        "status": "vod_found",
+        "message": "자동 탐색: 2개 공개 다시보기 발견"
       },
       "latestBroadcast": {
         "date": "2026-10-07",
         "title": "apac ranked",
         "source": "https://vodarchive.com/vods/tenz",
         "skinVerified": false
-      }
+      },
+      "discoveredAt": "2026-10-08T07:30:13.734243+00:00",
+      "discoveredVods": [
+        {
+          "url": "https://www.twitch.tv/videos/2894146974",
+          "title": "T1 vs. NRG VCT CHAMPIONS",
+          "platform": "Twitch"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=kb0gqpZzynY",
+          "title": "T1 vs NRG",
+          "platform": "YouTube"
+        }
+      ]
     },
     "t3xture": {
       "checkedAt": null,
-      "vod": null,
+      "vod": {
+        "url": "https://www.twitch.tv/t3xturekr/videos?filter=archives&sort=time",
+        "title": "t3xturekr - Past Broadcasts sorted by Date",
+        "publishedAt": null
+      },
       "weapons": {},
       "channels": [
         {
-          "label": "YouTube",
-          "url": "https://www.youtube.com/@t3xture"
+          "label": "Twitch",
+          "url": "https://www.twitch.tv/t3xturekr"
         }
       ],
       "sourceCheck": {
-        "status": "unverified",
-        "message": "선수 채널 확인 · 영상 재생이 로딩에서 멈춰 컬렉션 미확인"
+        "status": "vod_found",
+        "message": "자동 탐색: 1개 공개 다시보기 발견"
       },
       "candidateVideo": {
         "url": "https://www.youtube.com/watch?v=ZhuepqaKCos",
         "title": "2026 챔피언스 스킨 리뷰"
-      }
+      },
+      "discoveredAt": "2026-10-08T07:30:13.734243+00:00",
+      "discoveredVods": [
+        {
+          "url": "https://www.twitch.tv/t3xturekr/videos?filter=archives&sort=time",
+          "title": "t3xturekr - Past Broadcasts sorted by Date",
+          "platform": "Twitch"
+        }
+      ]
     },
     "aspas": {
       "checkedAt": null,
-      "vod": null,
+      "vod": {
+        "url": "https://www.twitch.tv/aspaszin/videos?filter=archives&sort=time",
+        "title": "aspaszin - Past Broadcasts sorted by Date",
+        "publishedAt": null
+      },
       "weapons": {},
       "channels": [
         {
-          "label": "YouTube",
-          "url": "https://www.youtube.com/@aspaszin"
-        },
-        {
           "label": "Twitch",
           "url": "https://www.twitch.tv/aspaszin"
+        },
+        {
+          "label": "YouTube",
+          "url": "https://www.youtube.com/@aspaszin"
         }
       ],
       "sourceCheck": {
-        "status": "unverified",
-        "message": "선수 채널 확인 · 영상 재생이 로딩에서 멈춰 컬렉션 미확인"
+        "status": "vod_found",
+        "message": "자동 탐색: 2개 공개 다시보기 발견"
       },
       "candidateVideo": {
         "url": "https://www.youtube.com/watch?v=_KtO6nNeeEQ",
         "title": "ASPAS É IMPARÁVEL DE JETT"
-      }
+      },
+      "discoveredAt": "2026-10-08T07:30:13.734243+00:00",
+      "discoveredVods": [
+        {
+          "url": "https://www.twitch.tv/aspaszin/videos?filter=archives&sort=time",
+          "title": "aspaszin - Past Broadcasts sorted by Date",
+          "platform": "Twitch"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=N0Ted78Ysu0",
+          "title": "@aspaszin socials | 🌪️🌪️🌪️🌪️ |",
+          "platform": "YouTube"
+        }
+      ]
     },
     "something": {
       "checkedAt": null,
-      "vod": null,
+      "vod": {
+        "url": "https://www.twitch.tv/smthlikeyou11/videos?filter=archives&sort=time",
+        "title": "smthlikeyou11 - Past Broadcasts sorted by Date",
+        "publishedAt": null
+      },
       "weapons": {},
       "channels": [
-        {
-          "label": "YouTube",
-          "url": "https://www.youtube.com/channel/UCyTiK5pX90KhAFUzHwzBYzw"
-        },
         {
           "label": "Twitch",
           "url": "https://www.twitch.tv/smthlikeyou11"
         }
       ],
       "sourceCheck": {
-        "status": "unverified",
-        "message": "선수 채널 확인 · Twitch 공개 다시보기 없음 · 컬렉션 미확인"
-      }
+        "status": "vod_found",
+        "message": "자동 탐색: 1개 공개 다시보기 발견"
+      },
+      "discoveredAt": "2026-10-08T07:30:13.734243+00:00",
+      "discoveredVods": [
+        {
+          "url": "https://www.twitch.tv/smthlikeyou11/videos?filter=archives&sort=time",
+          "title": "smthlikeyou11 - Past Broadcasts sorted by Date",
+          "platform": "Twitch"
+        }
+      ]
     }
   }
 }
