@@ -13,14 +13,14 @@
   <header><a class="brand" href="#">VAL<span> LIVE</span></a><nav><a href="#skins">스킨 컬렉션</a><a href="#videos">자동 탐색</a></nav></header>
   <main>
     <section class="hero"><p class="eyebrow">FAST VALORANT-ONLY VOD SCANNER</p><h1>고속으로 훑고,<br><span>발로란트 플레이만 분석.</span></h1>
-      <p>TenZ · aspas · t3xture · something의 공식 방송 채널에서 공개 다시보기를 자동으로 검색합니다. 영상 주소를 직접 입력할 필요가 없습니다. 다른 게임을 플레이하는 구간은 건너뛰도록 고속 화면 탐색을 적용했습니다.</p>
+      <p>선택한 선수 1명의 공개 다시보기만 검색하고 분석합니다. 다른 선수는 함께 실행하지 않습니다. 영상 주소를 직접 입력할 필요가 없습니다. 다른 게임을 플레이하는 구간은 건너뛰도록 고속 화면 탐색을 적용했습니다.</p>
       <div class="notice">24초 간격 빠른 탐색 → 발로란트 화면 발견 시 4초 간격 세부 검사 · 유료 AI API 없음</div>
     </section>
     <section class="toolbar" aria-label="최신화 메뉴">
-      <label>선수 선택<select id="player"><option>TenZ</option><option>aspas</option><option>t3xture</option><option>something</option></select></label>
-      <button id="refresh" type="button">↻ 전체 최신화 시작</button><a class="run-action" href="https://github.com/K3ANER/val-live/actions/workflows/scan.yml" target="_blank" rel="noopener noreferrer">GitHub에서 즉시 분석 실행 ↗</a>
+      <label>분석할 선수 (한 명씩)<select id="player"><option>TenZ</option><option>aspas</option><option>t3xture</option><option>something</option></select></label>
+      <button id="refresh" type="button">TenZ 분석 실행 ↗</button><button id="reload" type="button" class="secondary-action">결과 새로고침 ↻</button><a id="run-action" class="run-action" href="https://github.com/K3ANER/val-live/actions/workflows/scan-tenz.yml" target="_blank" rel="noopener noreferrer">TenZ 분석 실행 페이지 ↗</a>
       <p id="status" role="status" aria-live="polite">마지막 자동 검색 결과 불러오는 중…</p>
-      <small>최신화 요청은 서버에서 처리되므로 휴대폰을 계속 켜둘 필요가 없습니다. 서버 최초 연결이 필요합니다.</small>
+      <small>선택한 선수 1명만 분석합니다. 현재 실행 서버가 연결되지 않아 GitHub에서 Run workflow를 한 번 더 눌러야 합니다.</small>
     </section>
     <section id="skins"><div class="section-head"><div><p class="eyebrow">LOADOUT</p><h2>총기별 스킨</h2></div><span id="verified-count" class="badge">확인 0개</span></div>
       <p id="checked-at" class="muted">확인 기록 없음</p>
@@ -34,7 +34,7 @@
       <div id="source"></div>
     </section>
     <section class="panel guide"><h2>최근 자동 분석 기록</h2><div id="history"><p class="muted">불러오는 중…</p></div></section>
-    <section class="panel guide"><h2>자동화 안내</h2><p>유튜브·트위치의 공개 다시보기를 자동 검색합니다. 먼저 24초 간격으로 영상을 빠르게 훑고, 발로란트 플레이 화면이 확인된 구간만 4초 간격으로 검사합니다. 컬렉션 화면에서 같은 스킨 이름 또는 이미지를 서로 다른 두 프레임에서 확인했을 때만 확정합니다. 실패하거나 확인되지 않은 총기는 '미확인'으로 남습니다. 플레이 중 보이는 3D 총기를 이미지로 식별하는 기능은 아직 없습니다. 영상 접근/화면 인식이 실패하면 미확인으로 남습니다. 서버 연결 전 최신화 버튼은 저장된 결과만 새로 불러옵니다.</p>
+    <section class="panel guide"><h2>자동화 안내</h2><p>선수별로 따로 실행하며 한 번에 한 선수만 검색합니다. 예약 실행도 6시간마다 한 선수씩 번갈아 확인합니다. 먼저 24초 간격으로 영상을 빠르게 훑고, 발로란트 플레이 화면이 확인된 구간만 4초 간격으로 검사합니다. 컬렉션 화면에서 같은 스킨 이름 또는 이미지를 서로 다른 두 프레임에서 확인했을 때만 확정합니다. 실패하거나 확인되지 않은 총기는 '미확인'으로 남습니다. 플레이 중 보이는 3D 총기를 이미지로 식별하는 기능은 아직 없습니다. 영상 접근/화면 인식이 실패하면 미확인으로 남습니다. 실행 서버 연결 전에는 선수별 GitHub Actions 실행 화면으로 이동하며, 저장된 결과는 별도의 새로고침 버튼으로 확인합니다.</p>
       <p id="setup" class="muted"></p></section>
   </main>
   <footer>VAL LIVE · Riot Games와 무관한 비공식 프로젝트 · 라이브/다시보기 이용 제한에 따라 분석이 실패할 수 있습니다.</footer>
