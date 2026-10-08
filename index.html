@@ -4,38 +4,65 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#101216">
-  <meta name="description" content="TenZ, aspas, t3xture, something의 발로란트 라이브 다시보기와 스킨 컬렉션 확인 기록">
-  <title>VAL LIVE · 자동 스킨 최신화</title>
+  <meta name="description" content="TenZ, aspas, t3xture, something의 공개 라이브 다시보기를 자동 탐색하여 발로란트 스킨 확인 결과를 표시합니다.">
+  <title>VAL LIVE · 선수별 스킨 자동 최신화</title>
   <link rel="stylesheet" href="styles.css">
   <script src="app.js" defer></script>
 </head>
 <body>
-  <header><a class="brand" href="#">VAL<span> LIVE</span></a><nav><a href="#skins">스킨 컬렉션</a><a href="#videos">자동 탐색</a></nav></header>
-  <main>
-    <section class="hero"><p class="eyebrow">FAST VALORANT-ONLY VOD SCANNER</p><h1>고속으로 훑고,<br><span>발로란트 플레이만 분석.</span></h1>
-      <p>선택한 선수 1명의 공개 다시보기만 검색하고 분석합니다. 다른 선수는 함께 실행하지 않습니다. 영상 주소를 직접 입력할 필요가 없습니다. 다른 게임을 플레이하는 구간은 건너뛰도록 고속 화면 탐색을 적용했습니다.</p>
-      <div class="notice">24초 간격 빠른 탐색 → 발로란트 화면 발견 시 4초 간격 세부 검사 · 유료 AI API 없음</div>
+  <header>
+    <a class="brand" href="#top" aria-label="VAL LIVE 홈">VAL<span> LIVE</span></a>
+    <nav><a href="#skins">스킨</a><a href="#videos">방송 확인</a></nav>
+  </header>
+  <main id="top">
+    <section class="hero">
+      <p class="eyebrow">AUTOMATIC VALORANT SKIN TRACKER</p>
+      <h1>방송은 알아서 찾고,<br><span>스킨은 확인되면 최신화.</span></h1>
+      <p>TenZ · aspas · t3xture · something. 각 선수의 공개 라이브 다시보기를 프로그램이 자동 검색하고 분석합니다. 영상 링크를 직접 넣거나 GitHub에 들어갈 필요가 없습니다.</p>
+      <div class="notice">선수 한 명씩 순차 실행 · 무료 이미지 비교 · 검증된 스킨만 표시</div>
     </section>
-    <section class="toolbar" aria-label="최신화 메뉴">
-      <label>분석할 선수 (한 명씩)<select id="player"><option>TenZ</option><option>aspas</option><option>t3xture</option><option>something</option></select></label>
-      <button id="refresh" type="button">TenZ 분석 실행 ↗</button><button id="reload" type="button" class="secondary-action">결과 새로고침 ↻</button><a id="run-action" class="run-action" href="https://github.com/K3ANER/val-live/actions/workflows/scan-tenz.yml" target="_blank" rel="noopener noreferrer">TenZ 분석 실행 페이지 ↗</a>
-      <p id="status" role="status" aria-live="polite">마지막 자동 검색 결과 불러오는 중…</p>
-      <small>선택한 선수 1명만 분석합니다. 현재 실행 서버가 연결되지 않아 GitHub에서 Run workflow를 한 번 더 눌러야 합니다.</small>
+    <section class="toolbar" aria-label="자동 최신화 상태">
+      <label class="player-choice">확인할 선수
+        <select id="player" autocomplete="off">
+          <option>TenZ</option><option>aspas</option><option>t3xture</option><option>something</option>
+        </select>
+      </label>
+      <div class="auto-indicator" aria-label="자동 최신화 예약됨"><span class="pulse-dot"></span> 자동 분석 예약됨</div>
+      <button type="button" id="refresh">최신 결과 다시 확인 ↻</button>
+      <p id="status" role="status" aria-live="polite">저장된 최신 확인 결과 불러오는 중…</p>
+      <p id="next-check" class="schedule-text">다음 자동 확인 일정 확인 중…</p>
+      <small>매 6시간마다 선수 한 명씩 돌아가며 검색합니다. 분석이 끝나서 결과가 게시되면 이 화면도 약 1분 간격으로 자동 갱신됩니다. 영상 접근 제한이 있으면 미확인으로 표시합니다.</small>
     </section>
-    <section id="skins"><div class="section-head"><div><p class="eyebrow">LOADOUT</p><h2>총기별 스킨</h2></div><span id="verified-count" class="badge">확인 0개</span></div>
+    <section id="skins">
+      <div class="section-head">
+        <div><p class="eyebrow">LOADOUT</p><h2>총기별 스킨</h2></div>
+        <span id="verified-count" class="badge">확인 0개</span>
+      </div>
       <p id="checked-at" class="muted">확인 기록 없음</p>
-      <label class="search">무기 검색<input id="search" type="search" placeholder="Vandal, Phantom, Odin…" autocomplete="off"></label>
+      <label class="search">무기 검색
+        <input id="search" type="search" placeholder="Vandal, Phantom, Odin…" autocomplete="off">
+      </label>
       <div id="weapon-grid" class="grid"></div>
     </section>
-    <section id="videos" class="panel"><p class="eyebrow">AUTO-DISCOVERY</p><h2>자동으로 찾은 최근 다시보기</h2>
-      <p class="muted">아래 링크도 서버가 선수의 방송 채널에서 스스로 찾아낸 것입니다. 영상을 직접 제출할 필요가 없습니다.</p>
-      <div id="vod-list" class="vod-list"><p class="muted">아직 확인된 다시보기 없음</p></div>
-      <h3>분석 상태</h3><p id="analysis" class="muted"></p>
+    <section id="videos" class="panel">
+      <p class="eyebrow">AUTO VOD DISCOVERY</p>
+      <h2>자동으로 찾은 다시보기</h2>
+      <p class="muted">최신 공개 방송 검색 결과입니다. 직접 영상 링크를 제출하지 않아도 됩니다.</p>
+      <div id="vod-list" class="vod-list"></div>
+      <h3>최근 분석 결과</h3>
+      <p id="analysis" class="muted"></p>
       <div id="source"></div>
     </section>
-    <section class="panel guide"><h2>최근 자동 분석 기록</h2><div id="history"><p class="muted">불러오는 중…</p></div></section>
-    <section class="panel guide"><h2>자동화 안내</h2><p>선수별로 따로 실행하며 한 번에 한 선수만 검색합니다. 예약 실행도 6시간마다 한 선수씩 번갈아 확인합니다. 먼저 24초 간격으로 영상을 빠르게 훑고, 발로란트 플레이 화면이 확인된 구간만 4초 간격으로 검사합니다. 컬렉션 화면에서 같은 스킨 이름 또는 이미지를 서로 다른 두 프레임에서 확인했을 때만 확정합니다. 실패하거나 확인되지 않은 총기는 '미확인'으로 남습니다. 플레이 중 보이는 3D 총기를 이미지로 식별하는 기능은 아직 없습니다. 영상 접근/화면 인식이 실패하면 미확인으로 남습니다. 실행 서버 연결 전에는 선수별 GitHub Actions 실행 화면으로 이동하며, 저장된 결과는 별도의 새로고침 버튼으로 확인합니다.</p>
-      <p id="setup" class="muted"></p></section>
+    <section class="panel guide">
+      <h2>자동 분석 기록</h2>
+      <div id="history"><p class="muted">기록 불러오는 중…</p></div>
+    </section>
+    <section class="panel guide">
+      <h2>스킨 판별 기준</h2>
+      <p>공개된 방송의 여러 구간을 24초 간격으로 빠르게 탐색하고, 발로란트 화면을 찾으면 4초 간격으로 세부 분석합니다. 컬렉션 화면의 스킨 이름 또는 이미지를 서로 다른 프레임 두 장에서 확인하면 게시합니다. 짧은 화면은 놓칠 수 있으며 플레이 중의 3D 총기 이미지를 식별하는 기능은 아직 제공하지 않습니다.</p>
+      <p class="muted">재생이 제한된 영상은 분석할 수 없습니다. GitHub Actions의 예약 실행 시간이 지연될 수 있으며, 자동 검색이나 이미지 판별이 실패해도 임의의 스킨을 표시하지 않습니다.</p>
+    </section>
   </main>
-  <footer>VAL LIVE · Riot Games와 무관한 비공식 프로젝트 · 라이브/다시보기 이용 제한에 따라 분석이 실패할 수 있습니다.</footer>
-</body></html>
+  <footer>VAL LIVE · Riot Games와 무관한 비공식 팬 프로젝트</footer>
+</body>
+</html>
