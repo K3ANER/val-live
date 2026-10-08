@@ -1,52 +1,14 @@
 'use strict';
-
-
-const weapons = ['Classic','Shorty','Frenzy','Ghost','Sheriff','Stinger','Spectre','Bucky','Judge','Bulldog','Guardian','Phantom','Vandal','Marshal','Outlaw','Operator','Ares','Odin','Melee'];
-const $ = id => document.getElementById(id);
-let snapshot = null;
-let requestId = 0;
-function safeVideoUrl(value) {
-  try { const u = new URL(value); return u.protocol === 'https:' && ['youtube.com','www.youtube.com','m.youtube.com','youtu.be','twitch.tv','www.twitch.tv'].includes(u.hostname) && !u.username && !u.password ? u : null; } catch { return null; }
-}
-function render() {
-  const result = snapshot?.players?.[$('player').value];
-  const query = $('search').value.trim().toLowerCase();
-  const verified = weapons.filter(w => result?.weapons?.[w]?.verified === true && typeof result.weapons[w].skin === 'string' && result.weapons[w].skin.trim());
-  $('verified-count').textContent = `확인 ${verified.length}개`;
-  const date = result?.checkedAt ? new Date(result.checkedAt) : null;
-  $('checked-at').textContent = date && !Number.isNaN(date.getTime()) ? `결과 확인 시각: ${date.toLocaleString('ko-KR')}` : '실제 확인 기록 없음';
-  $('weapon-grid').replaceChildren();
-  for (const w of weapons.filter(w => w.toLowerCase().includes(query))) {
-    const card = document.createElement('article'); card.className = 'weapon';
-    const title = document.createElement('h3'); title.textContent = w;
-    const skin = document.createElement('p'); const confirmed = verified.includes(w);
-    skin.className = confirmed ? 'confirmed' : 'unknown'; skin.textContent = confirmed ? result.weapons[w].skin : '미확인';
-    const note = document.createElement('small'); note.textContent = confirmed ? (result.weapons[w].verificationMethod?.startsWith('ai-') ? `AI 확인 · ${new Date(result.weapons[w].observedAt).toLocaleString('ko-KR')}` : '확인된 기록') : '확인 결과가 아직 없습니다';
-    card.append(title, skin, note); $('weapon-grid').append(card);
-  }
-  if (!$('weapon-grid').children.length) $('weapon-grid').textContent = '검색 결과가 없습니다.';
-  $('source').replaceChildren();
-  const url = safeVideoUrl(result?.vod?.url);
-  if (url) { const a = document.createElement('a'); a.href = url.href; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.textContent = `${result?.analysis?.status === 'source_unavailable' ? '분석 대상: ' : ''}${result.vod.title || '출처 영상'}`; $('source').append(a); }
-  else $('source').textContent = '확인된 컬렉션 출처 없음';
-  const message=document.createElement('p'); message.className='muted'; message.textContent=result?.sourceCheck?.message || '컬렉션 확인 대기 중'; $('source').append(message);
-  for(const channel of result?.channels || []) { const u=safeVideoUrl(channel.url); if(!u) continue; const a=document.createElement('a'); a.href=u.href; a.target='_blank'; a.rel='noopener noreferrer'; a.textContent=channel.label+' 채널 ↗'; a.style.marginRight='16px'; $('source').append(a); }
-}
-async function refresh() {
-  const id = ++requestId; $('refresh').disabled = true; $('status').textContent = '저장된 결과를 불러오는 중…';
-  try {
-    const response = await fetch(`latest.json?t=${Date.now()}`, {cache:'no-store', signal:AbortSignal.timeout(15000)});
-    if (!response.ok) throw new Error('load');
-    const data = await response.json();
-    if (data.schemaVersion !== 1 || !data.players || typeof data.players !== 'object' || Array.isArray(data.players)) throw new Error('format');
-    if (id !== requestId) return;
-    snapshot = data; render(); $('status').textContent = '직접 확인해 저장한 스킨 결과를 불러왔습니다.';
-  } catch {
-    if (id !== requestId) return;
-    $('status').textContent = '결과를 불러오지 못했습니다. 기존 표시를 유지합니다. 로컬 서버 또는 배포 주소에서 다시 시도하세요.';
-  } finally { if (id === requestId) $('refresh').disabled = false; }
-}
-$('player').addEventListener('change',render);
-$('search').addEventListener('input',render);
-$('refresh').addEventListener('click',refresh);
-render(); refresh();
+const weapons=['Classic','Shorty','Frenzy','Ghost','Sheriff','Stinger','Spectre','Bucky','Judge','Bulldog','Guardian','Phantom','Vandal','Marshal','Outlaw','Operator','Ares','Odin','Melee'];
+const $=id=>document.getElementById(id);let snapshot=null,videoUrl='';
+function validUrl(value){try{const u=new URL(value);if(u.protocol!=='https:')return null;let id='';if(['youtube.com','www.youtube.com','m.youtube.com'].includes(u.hostname)){id=u.searchParams.get('v')||u.pathname.match(/^\/(?:live|shorts|embed)\/([a-zA-Z0-9_-]{11})/)?.[1]||'';}else if(u.hostname==='youtu.be')id=u.pathname.slice(1);return /^[a-zA-Z0-9_-]{11}$/.test(id)?{id,url:'https://www.youtube.com/watch?v='+id}:null;}catch{return null;}}
+function key(){return 'vallive:review:'+ $('player').value}
+function records(){try{return JSON.parse(localStorage.getItem(key())||'{}')}catch{return {}}}
+function render(){const player=$('player').value;const remote=snapshot?.players?.[player]||{};const local=records();const verified=weapons.filter(w=>local[w]?.skin||remote.weapons?.[w]?.verified&&remote.weapons[w].skin);$('verified-count').textContent='확인 '+verified.length+'개';$('checked-at').textContent=Object.keys(local).length?'이 기기에 저장된 직접 확인 기록':'이 기기의 확인 기록 없음';$('weapon-grid').replaceChildren();const q=$('search').value.toLowerCase();for(const w of weapons.filter(w=>w.toLowerCase().includes(q))){const entry=local[w]||remote.weapons?.[w];const ok=Boolean(entry?.skin&&(local[w]||entry.verified));const card=document.createElement('article');card.className='weapon';const h=document.createElement('h3');h.textContent=w;const p=document.createElement('p');p.className=ok?'confirmed':'unknown';p.textContent=ok?entry.skin:'미확인';const small=document.createElement('small');small.textContent=ok?(entry.time?'영상 '+entry.time+' · ':'')+(entry.savedAt?'내 기기에 저장':'확인 기록'):'영상에서 확인되지 않음';card.append(h,p,small);$('weapon-grid').append(card)}$('source').replaceChildren();for(const ch of remote.channels||[]){const a=document.createElement('a');a.href=ch.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent=ch.label+' 채널 ↗';a.style.marginRight='18px';$('source').append(a)}if(remote.sourceCheck?.message){const p=document.createElement('p');p.textContent=remote.sourceCheck.message;$('source').append(p)}}
+async function refresh(){ $('status').textContent='저장된 결과 확인 중…';try{const r=await fetch('latest.json?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error();snapshot=await r.json();$('status').textContent='저장된 결과를 불러왔습니다.'}catch{$('status').textContent='온라인 기록을 불러오지 못했습니다. 기기 기록은 사용할 수 있어요.'}render()}
+function setVideo(){const v=validUrl($('video-url').value);if(!v){$('video-note').textContent='올바른 YouTube 영상 링크를 입력해줘.';return}videoUrl=v.url;$('external-video').href=v.url;const frame=document.createElement('iframe');frame.src='https://www.youtube-nocookie.com/embed/'+v.id;frame.title='YouTube 다시보기';frame.allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';frame.allowFullscreen=true;frame.referrerPolicy='strict-origin-when-cross-origin';$('video-frame').replaceChildren(frame);$('video-note').textContent='영상을 확인하고 스킨 이름을 기록해줘. 임베드가 막히면 YouTube에서 열기를 눌러줘.'}
+$('entry-weapon').replaceChildren(...weapons.map(w=>{const o=document.createElement('option');o.textContent=w;return o}));
+$('player').addEventListener('change',()=>{render();const v=snapshot?.players?.[$('player').value]?.vod?.url;$('video-url').value=v||'';$('video-frame').textContent='영상 열기를 눌러 재생하세요.'});
+$('search').addEventListener('input',render);$('refresh').addEventListener('click',refresh);$('load-video').addEventListener('click',setVideo);
+$('save-skin').addEventListener('click',()=>{const skin=$('entry-skin').value.trim();if(!skin){$('video-note').textContent='확인한 스킨 이름을 입력해줘.';return}const data=records();data[$('entry-weapon').value]={skin,time:$('entry-time').value.trim(),url:videoUrl,savedAt:new Date().toISOString()};try{localStorage.setItem(key(),JSON.stringify(data));$('video-note').textContent='이 기기에 확인 기록을 저장했어.';render()}catch{$('video-note').textContent='브라우저 저장소에 저장할 수 없어요.'}});
+refresh().then(()=>{const v=snapshot?.players?.[$('player').value]?.vod?.url;if(v)$('video-url').value=v});
