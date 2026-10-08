@@ -11,7 +11,7 @@ from analyze import catalog_getter, scan_video
 from vision import ImageSkinMatcher, load_api_catalog
 
 ROOT = Path(__file__).resolve().parents[1]
-REVISION = 'fast-valorant-v1'
+REVISION = 'latest-vod-priority-v2'
 
 def read_json(name, default):
     try:
@@ -49,7 +49,7 @@ def run():
     history=read_json('history.json',[])
     now=datetime.now(timezone.utc)
     now_stamp=now.isoformat()
-    discovery=discover_all(sources,max_vods=2)
+    discovery=discover_all(sources,max_vods=1)
     catalog=None
     icon_matcher=None
     icon_warning=None
