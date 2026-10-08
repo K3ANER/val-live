@@ -1,5 +1,12 @@
 name: VAL-LIVE – 무료 OCR 및 스킨 이미지 자동 비교
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/scan.yml'
+      - 'scripts/**'
+      - 'sources.json'
+      - 'requirements.txt'
   workflow_dispatch:
     inputs:
       player:
