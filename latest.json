@@ -10,9 +10,9 @@
       },
       "weapons": {},
       "analysis": {
-        "status": "source_unavailable",
-        "message": "분석 대상 영상을 찾았으나 실제 영상 화면에 접근하지 못했습니다. 스킨 확인 대기 중입니다.",
-        "attemptedAt": "2026-10-08T01:16:28.945Z"
+        "status": "frames_not_accessible",
+        "message": "최신 방송 메타데이터만 확인됨. 실제 스킨 식별 불가.",
+        "attemptedAt": "2026-10-08"
       },
       "channels": [
         {
@@ -25,8 +25,14 @@
         }
       ],
       "sourceCheck": {
-        "status": "unverified",
-        "message": "선수 채널 확인 · 영상 재생이 로딩에서 멈춰 컬렉션 미확인"
+        "status": "vod_found_unverified",
+        "message": "2026-10-07 최신 방송 기록 확인. 영상 화면/스킨 컬렉션은 아직 확인하지 못해 스킨 미확인."
+      },
+      "latestBroadcast": {
+        "date": "2026-10-07",
+        "title": "apac ranked",
+        "source": "https://vodarchive.com/vods/tenz",
+        "skinVerified": false
       }
     },
     "t3xture": {
