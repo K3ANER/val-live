@@ -52,8 +52,7 @@ $('vod-form').addEventListener('submit',event => {
   event.preventDefault(); const url = safeVideoUrl($('vod-url').value.trim());
   if (!url) { $('vod-status').textContent = 'YouTube 또는 Twitch의 HTTPS 영상 주소를 입력하세요.'; return; }
   if (server) { startScan(true,url.href); return; }
-  window.open(url.href,'_blank','noopener,noreferrer');
-  $('vod-status').textContent = '영상 열기를 요청했습니다. 이 단계에서는 영상 분석이나 스킨 확인 기록을 저장하지 않습니다.';
+  $('vod-status').textContent = '영상 분석을 사용하려면 분석 서버를 연결하세요. 컬렉션 발견 후에는 영상으로 돌아가지 않습니다.';
 });
 let server = '';
 let token = '';
@@ -101,3 +100,4 @@ $('cancel-scan').addEventListener('click',async()=>{
 });
 
 render(); refresh().then(()=>{if(server && token)startScan();});
+
