@@ -96,21 +96,28 @@
         }
       ],
       "sourceCheck": {
-        "status": "vod_found",
-        "message": "공개 VOD 1개 발견 · 24초 간격 고속 탐색 · 발로란트 화면만 세부 분석"
+        "status": "already_checked",
+        "message": "새로운 공개 다시보기 없음 · 이전 검증 결과 유지"
       },
       "candidateVideo": {
         "url": "https://www.youtube.com/watch?v=_KtO6nNeeEQ",
         "title": "ASPAS É IMPARÁVEL DE JETT"
       },
-      "discoveredAt": "2026-10-08T08:26:02.610064+00:00",
+      "discoveredAt": "2026-10-08T08:36:11.933221+00:00",
       "discoveredVods": [
         {
           "url": "https://www.youtube.com/watch?v=N0Ted78Ysu0",
           "title": "@aspaszin socials | 🌪️🌪️🌪️🌪️ |",
           "platform": "YouTube"
         }
-      ]
+      ],
+      "lastScanFinishedAt": "2026-10-08T08:36:13.540501+00:00",
+      "lastAutomaticRun": {
+        "status": "no_new_vod",
+        "finishedAt": "2026-10-08T08:36:13.540501+00:00",
+        "videosFound": 1,
+        "videosExamined": 0
+      }
     },
     "something": {
       "checkedAt": null,
@@ -133,5 +140,6 @@
       "discoveredAt": "2026-10-08T07:55:35.889009+00:00",
       "discoveredVods": []
     }
-  }
+  },
+  "lastAutomaticPublishAt": "2026-10-08T08:36:13.540501+00:00"
 }
