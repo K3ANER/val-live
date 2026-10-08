@@ -1,37 +1,45 @@
-# VAL-LIVE: 발로란트 영상만 고속 탐색 (무료)
-선수: TenZ, aspas, t3xture, something.
+# VAL-LIVE — 자동 방송 검색 · 자동 분석 · 자동 사이트 최신화
 
-## 분석 과정
-1. 지정한 유튜브·트위치 채널에서 **실제 재생 가능한 공개 VOD** 주소를 자동 수집합니다 (주소 직접 입력 불필요).
-2. 영상 전체를 정상 속도로 보는 대신 시작/중간/끝을 포함한 **최대 5개의 짧은 구간**만 추출합니다. 각 구간에서 **24초마다 1프레임**을 OCR로 검사합니다.
-3. 'BUY PHASE', 'SPIKE PLANTED' 등 발로란트 HUD 또는 발로란트 **COLLECTION** 화면으로 확인되지 않은 구간은 **상세 분석을 건너뜁니다**.
-4. 발로란트 화면이 확인된 구간에서만 **4초마다 1프레임**을 추출해 COLLECTION에 있는 스킨 이름 OCR / 무료 Valorant-API 스킨 아이콘 이미지 비교를 실행합니다.
-5. 다른 프레임 2개에서 동일 스킨을 확인한 경우에만 `latest.json`에 확정합니다. 게임 화면에서 스킨을 추정해서 등록하지 않습니다. 확신이 없다면 '미확인'으로 표시합니다.
-6. GitHub Actions는 6시간마다 선수 한 명을 번갈아 선택해서 새 VOD를 확인하고, 결과를 GitHub Pages로 자동 게시합니다.
+모바일 사이트: https://k3aner.github.io/val-live/
 
-## 제한
-- **3D 실전 총기 스킨 인식**은 아직 지원하지 않습니다. 확인 방법은 컬렉션 화면의 이미지 또는 텍스트 비교입니다.
-- 녹화 전체를 빠짐없이 확인하는 것은 아닙니다. **스킵 샘플링**이기 때문에 짧은 컬렉션 화면이 샘플 구간 밖에 있으면 놓칠 수 있습니다.
-- OCR 기반 VALORANT 여부 판정이므로 화면에 HUD 텍스트가 잘 안 보이면 발로란트 방송이라도 건너뛸 수 있습니다.
-- 공개되어도 유튜브/트위치 다운로드 제한에 걸리면 분석할 수 없습니다. 제한을 우회하지 않습니다.
-- GitHub Actions 무료 사용량에 한도가 있습니다. 별도 유료 AI API 키는 필요 없습니다.
-- GitHub Pages의 최신화 버튼은 현재 저장된 결과를 갱신하는 기능입니다. 안전한 인증 서버가 없는 상태에서 웹 브라우저가 Actions를 직접 실행할 수는 없습니다. 화면의 "GitHub에서 즉시 분석 실행" 링크로 수동 실행하거나, 6시간마다 예약된 실행을 사용하세요.
+**사용자가 GitHub에 접속하거나 방송 주소를 붙여넣을 필요가 없습니다.** 저장소의 GitHub Actions가 예약 실행되어 공식 방송 채널의 공개 라이브 다시보기를 자동 검색하고, 확인된 스킨만 웹사이트에 게시합니다.
 
-## 설치/확인
-- GitHub 저장소: https://github.com/K3ANER/val-live
-- 모바일: https://k3aner.github.io/val-live/
-- Actions: https://github.com/K3ANER/val-live/actions/workflows/scan.yml
-- 빠른 스캔 단위 테스트: `python -m unittest discover -s tests -p 'test_fast_scan.py' -v`
+## 자동 처리 방식
+1. 지정된 시간에 **선수 한 명**을 선택합니다. 4명을 한 번에 분석하지 않습니다.
+2. `sources.json`에서 해당 선수의 공개 YouTube/Twitch 채널을 찾아 실제 재생 가능한 VOD URL을 자동 수집합니다. 영상이 없거나 접근 불가능하면 분석하지 않고 상태만 기록합니다.
+3. VOD의 여러 짧은 구간에서 **24초 간격**으로 발로란트 게임 UI 또는 컬렉션 화면을 탐색합니다. 다른 게임 화면은 상세 검사를 생략합니다.
+4. 발로란트 장면이 발견된 구간에 한해 **4초 간격**으로 컬렉션 화면의 스킨 텍스트/OCR 및 무료 Valorant-API 스킨 이미지 비교를 시도합니다.
+5. 서로 다른 두 프레임에서 같은 스킨이 확인된 경우에만 검증 완료로 기록합니다. 한 프레임만 발견되거나 인식이 불확실하면 **미확인**으로 표시하고 이전의 검증 결과는 유지합니다.
+6. **분석이 끝나면** `latest.json`, `history.json` 및 `scan_state.json`을 커밋합니다. GitHub Pages가 새 데이터를 배포하고, 열려 있는 모바일 홈페이지는 약 **1분마다** 결과를 다시 불러옵니다. 앱으로 되돌아오면 즉시 동기화합니다.
 
+## 자동 검사 일정
 
-## 한 명씩 분석하는 방식 (2026-10-08 업데이트)
-- TenZ, aspas, t3xture, something 중 **선택한 선수 한 명만** 영상 자동 검색 및 이미지 대조를 수행합니다.
-- 홈페이지의 분석 버튼은 해당 선수의 개별 GitHub Actions 화면을 엽니다. **아직 원클릭 인증 서버가 없으므로 GitHub에서 `Run workflow`를 한 번 더 눌러야 실제 분석이 시작됩니다.**
-- 선수별 바로가기:
-  - [TenZ 실행](https://github.com/K3ANER/val-live/actions/workflows/scan-tenz.yml)
-  - [aspas 실행](https://github.com/K3ANER/val-live/actions/workflows/scan-aspas.yml)
-  - [t3xture 실행](https://github.com/K3ANER/val-live/actions/workflows/scan-t3xture.yml)
-  - [something 실행](https://github.com/K3ANER/val-live/actions/workflows/scan-something.yml)
-- 6시간마다 수행되는 예약 스캔 역시 **한 번에 한 선수**만 순환 실행합니다. (하루에 선수당 대략 한 번)
-- GitHub Actions 작업은 `concurrency`를 이용해 중복 작업의 병렬 실행을 방지합니다.
-- 홈페이지의 **결과 새로고침**은 저장된 정보를 불러오는 버튼이며 새 분석을 시작하지 않습니다.
+GitHub Actions에 6시간 간격 예약 실행이 이미 등록되어 있습니다. 매번 한 선수만 진행합니다.
+
+| 선수 | 예정 실행 시각 (한국시간) |
+| --- | --- |
+| TenZ | 오전 9:37 |
+| aspas | 오후 3:37 |
+| t3xture | 오후 9:37 |
+| something | 다음 날 오전 3:37 |
+
+시간은 GitHub Actions의 UTC cron을 한국시간으로 환산한 *예정 시각*입니다. 실제 실행은 GitHub 서버 사정에 따라 늦어지거나 건너뛰어질 수 있습니다. 하루에 각 선수를 한 번씩 시도합니다.
+
+## 이용 방법
+
+**https://k3aner.github.io/val-live/** 에 모바일/PC로 접속해 선수를 선택하면 됩니다. 영상 검색이나 분석 실행 버튼을 누를 필요가 없습니다. **최신 결과 다시 확인** 버튼은 이미 게시된 정보를 다시 읽는 보조 기능이지, 새 영상 분석을 강제로 시작하는 버튼은 아닙니다.
+
+## 제한 / 유료 서비스 없음
+
+- 유료 AI API 사용 없음. `yt-dlp`, ffmpeg, Tesseract, OpenCV 및 공개 Valorant-API를 사용합니다.
+- 영상 접근 제한, 비공개 방송, 저장되지 않은 라이브 다시보기, 유튜브/트위치 접근 거부가 있으면 스킨을 확인할 수 없습니다.
+- 모든 프레임을 확인하는 방식이 아니므로 아주 짧은 컬렉션 화면은 놓칠 수 있습니다.
+- **현재 게임 플레이 중 손에 든 3D 총기 스킨 식별은 지원하지 않습니다.** 컬렉션의 이미지와 텍스트 중심으로 확인합니다.
+- GitHub Actions/Pages 무료 제공량과 사용 정책 내에서 실행됩니다. 작업이 정지되거나 무료 실행 제한에 도달하면 자동 갱신이 늦어질 수 있습니다.
+- 새 스킨을 확인하지 못했다면 이름을 만들어서 올리지 않습니다.
+
+## 개발/점검 링크 (사용자는 필요 없음)
+
+- GitHub Actions: https://github.com/K3ANER/val-live/actions/workflows/scan.yml
+- 소스 파일: `.github/workflows/scan.yml`, `scripts/scan.py`, `scripts/discover.py`, `scripts/analyze.py`
+- 로컬 단위 테스트: `python -m unittest discover -s tests -p 'test_fast_scan.py' -v`
