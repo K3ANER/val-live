@@ -1,11 +1,21 @@
-# VAL LIVE
+# VAL-LIVE 자동 영상 검색 + 스킨 이미지 인식
+TenZ, aspas, t3xture, something의 공개 YouTube/Twitch VOD를 무료 GitHub Actions에서 검색하고, 컬렉션 화면이 나타난 경우 스킨명 OCR 및 무료 [Valorant-API](https://valorant-api.com/) 아이콘 이미지 대조를 수행합니다.
 
-모바일 대응 스킨 확인 사이트와 컬렉션 분석 서버입니다.
+## 실제 작동 범위
+- 영상 주소 **직접 입력 불필요**: `sources.json`의 채널을 자동 탐색
+- 6시간마다 자동 검색/분석 (GitHub Actions 무료 사용량 범위)
+- 공개 비디오만 다운로드 가능. 로그인/DRM/접근 제한을 우회하지 않음.
+- COLLECTION 화면을 OCR로 판별하고 텍스트 또는 이미지가 두 프레임에서 일치하면 `latest.json`에 검증 처리
+- 기존 검증 결과 유지. 확신하지 못하는 스킨은 '미확인'
+- 모바일/PC 웹 인터페이스 (GitHub Pages)
 
-사이트에서 분석 서버 주소와 분석 암호를 연결하면 라이브/최신 다시보기를 자동 확인합니다. 컬렉션을 두 프레임에서 발견하면 영상 수신을 종료하고 스킨 후보를 참조 이미지와 비교해 AI 확인 결과만 저장합니다. 정확하지 않은 항목은 이전 기록을 유지합니다.
+## 시작
+GitHub Actions → 'VAL-LIVE – 무료 OCR 및 스킨 이미지 자동 비교' → Run workflow.
+스케줄 실행은 Actions가 허용되어 있으면 6시간마다 자동 시도됩니다.
+GitHub Pages가 아직 미설정이라면 Settings → Pages → Deploy from a branch → main → /(root).
 
-실행·배포·비용 제한·테스트 안내: [backend/README.md](backend/README.md).
+## 원클릭 버튼의 제약
+GitHub Pages는 정적 호스팅으로 비밀 토큰을 안전하게 보관할 수 없어 웹 버튼만으로 GitHub Actions 작업을 실행할 수 없습니다. 별도 Worker 또는 로그인이 필요한 GitHub Actions 수동 실행이 필요합니다. Worker 토큰을 브라우저에 넣지 마세요. 서버 미설정 상태에서는 최신화 버튼이 이미 분석된 결과만 새로 불러옵니다.
 
-정적 사이트는 index.html, styles.css, app.js, latest.json을 같은 위치에 유지합니다. GitHub Pages는 화면만 제공합니다. 자동 영상 확인에는 별도 서버의 OPENAI_API_KEY 및 SCAN_TOKEN 설정이 필요합니다. 키를 GitHub에 업로드하지 마세요.
-
-구현 테스트는 모의 비전 응답으로 수행했습니다. 실제 영상 식별과 서버 배포는 아직 완료되지 않았습니다.
+## 이미지 인식 한계
+무료 아이콘 비교는 컬렉션의 평면 총기 아이콘과 일치할 때만 유효하며, 3D 게임 플레이 중 총기 스킨 인식기는 아닙니다. 자동 탐색 실패나 유사한 스킨 사이의 오인식 가능성이 있습니다. 공개 VOD 실제 성공 여부는 GitHub Actions의 실행 기록으로 확인하세요.

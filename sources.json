@@ -1,0 +1,17 @@
+{
+  "TenZ": [
+    "https://www.twitch.tv/tenz/videos?filter=archives&sort=time",
+    "https://www.youtube.com/@TenZ/streams",
+    "https://www.youtube.com/@tenzreplay/videos"
+  ],
+  "aspas": [
+    "https://www.twitch.tv/aspaszin/videos?filter=archives&sort=time",
+    "https://www.youtube.com/@aspaszin/streams"
+  ],
+  "t3xture": [
+    "https://www.twitch.tv/t3xturekr/videos?filter=archives&sort=time"
+  ],
+  "something": [
+    "https://www.twitch.tv/smthlikeyou11/videos?filter=archives&sort=time"
+  ]
+}

@@ -1,0 +1,49 @@
+name: VAL-LIVE – 무료 OCR 및 스킨 이미지 자동 비교
+on:
+  workflow_dispatch:
+    inputs:
+      player:
+        description: 'all, TenZ, aspas, t3xture, something'
+        required: false
+        default: 'all'
+        type: choice
+        options: [all, TenZ, aspas, t3xture, something]
+  schedule:
+    - cron: '37 */6 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: val-live-scans
+  cancel-in-progress: false
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install tools (no paid AI API)
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg tesseract-ocr
+          python -m pip install --disable-pip-version-check -r requirements.txt
+      - name: Verify scanner Python source
+        run: python -m compileall -q scripts
+      - name: Discover VODs and scan
+        env:
+          PLAYER: ${{ inputs.player || 'all' }}
+        run: python scripts/scan.py
+      - name: Publish discoveries, OCR matches and status
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add latest.json scan_state.json history.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'VAL-LIVE: compare collection screenshots against skin icon catalog'
+            git pull --rebase
+            git push
+          fi

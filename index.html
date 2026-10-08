@@ -1,1 +1,41 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101216"><title>VAL LIVE · 스킨 최신화</title><link rel="stylesheet" href="styles.css"><script src="app.js" defer></script></head><body><header><a class="brand" href="#">VAL<span> LIVE</span></a><nav><a href="#skins">스킨</a></nav></header><main><section class="hero"><p class="eyebrow">VALORANT SKIN TRACKER</p><h1>선수들의 스킨,<br><span>한눈에 확인하다.</span></h1><p>확인된 스킨만 표시합니다. 최신화 버튼으로 서버에 저장된 최신 확인 결과를 즉시 조회합니다.</p><div class="notice">영상 플레이어 없음 · 확인되지 않은 스킨은 미확인</div></section><section class="toolbar"><label>선수<select id="player"><option>TenZ</option><option>t3xture</option><option>aspas</option><option>something</option></select></label><button id="refresh" type="button">최신화 ↻</button><p id="status" role="status" aria-live="polite">확인 기록 불러오는 중…</p></section><section id="skins"><div class="section-head"><div><p class="eyebrow">LOADOUT</p><h2>스킨 확인</h2></div><span id="verified-count" class="badge">확인 0개</span></div><p id="checked-at" class="muted">확인 기록 없음</p><label class="search">무기 검색<input id="search" type="search" placeholder="Vandal, Phantom, Odin…" autocomplete="off"></label><div id="weapon-grid" class="grid"></div></section><section class="panel guide"><h2>최신화 상태</h2><p>최신화 버튼은 서버에 등록된 검증 결과를 즉시 다시 읽습니다. 새로운 영상을 자동으로 재생하고 컬렉션을 인식하는 서버는 아직 연결되지 않았습니다. 따라서 실제로 확인하지 않은 스킨은 자동 등록하지 않습니다.</p></section></main><footer>VAL LIVE · 비공식 팬 프로젝트 · Riot Games와 무관</footer></body></html>
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101216">
+  <meta name="description" content="TenZ, aspas, t3xture, something의 발로란트 라이브 다시보기와 스킨 컬렉션 확인 기록">
+  <title>VAL LIVE · 자동 스킨 최신화</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header><a class="brand" href="#">VAL<span> LIVE</span></a><nav><a href="#skins">스킨 컬렉션</a><a href="#videos">자동 탐색</a></nav></header>
+  <main>
+    <section class="hero"><p class="eyebrow">AUTOMATIC VALORANT VOD SCANNER</p><h1>최신화 한 번,<br><span>라이브 다시보기 자동 탐색.</span></h1>
+      <p>TenZ · aspas · t3xture · something의 공식 방송 채널에서 공개 다시보기를 자동으로 검색합니다. 영상 주소를 직접 입력할 필요가 없습니다.</p>
+      <div class="notice">무료 OCR 분석 · 실제 방송 접근/화면 인식 결과에 따라 스킨이 미확인일 수 있습니다.</div>
+    </section>
+    <section class="toolbar" aria-label="최신화 메뉴">
+      <label>선수 선택<select id="player"><option>TenZ</option><option>aspas</option><option>t3xture</option><option>something</option></select></label>
+      <button id="refresh" type="button">↻ 전체 최신화 시작</button>
+      <p id="status" role="status" aria-live="polite">마지막 자동 검색 결과 불러오는 중…</p>
+      <small>최신화 요청은 서버에서 처리되므로 휴대폰을 계속 켜둘 필요가 없습니다. 서버 최초 연결이 필요합니다.</small>
+    </section>
+    <section id="skins"><div class="section-head"><div><p class="eyebrow">LOADOUT</p><h2>총기별 스킨</h2></div><span id="verified-count" class="badge">확인 0개</span></div>
+      <p id="checked-at" class="muted">확인 기록 없음</p>
+      <label class="search">무기 검색<input id="search" type="search" placeholder="Vandal, Phantom, Odin…" autocomplete="off"></label>
+      <div id="weapon-grid" class="grid"></div>
+    </section>
+    <section id="videos" class="panel"><p class="eyebrow">AUTO-DISCOVERY</p><h2>자동으로 찾은 최근 다시보기</h2>
+      <p class="muted">아래 링크도 서버가 선수의 방송 채널에서 스스로 찾아낸 것입니다. 영상을 직접 제출할 필요가 없습니다.</p>
+      <div id="vod-list" class="vod-list"><p class="muted">아직 확인된 다시보기 없음</p></div>
+      <h3>분석 상태</h3><p id="analysis" class="muted"></p>
+      <div id="source"></div>
+    </section>
+    <section class="panel guide"><h2>최근 자동 분석 기록</h2><div id="history"><p class="muted">불러오는 중…</p></div></section>
+    <section class="panel guide"><h2>자동화 안내</h2><p>유튜브·트위치의 공개 다시보기를 자동 검색합니다. 영상에서 COLLECTION 화면과 같은 스킨 이름을 서로 다른 두 프레임에서 읽었을 때만 확인 처리합니다. 실패하거나 확인되지 않은 총기는 '미확인'으로 남습니다. 초기 1회 서버 연결 전에는 버튼이 저장된 결과만 새로 불러옵니다.</p>
+      <p id="setup" class="muted"></p></section>
+  </main>
+  <footer>VAL LIVE · Riot Games와 무관한 비공식 프로젝트 · 라이브/다시보기 이용 제한에 따라 분석이 실패할 수 있습니다.</footer>
+</body></html>
