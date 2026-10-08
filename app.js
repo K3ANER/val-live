@@ -31,7 +31,7 @@ function render() {
 async function refresh() {
   const id = ++requestId; $('refresh').disabled = true; $('status').textContent = '저장된 결과를 불러오는 중…';
   try {
-    const response = await fetch(`data/latest.json?t=${Date.now()}`, {cache:'no-store', signal:AbortSignal.timeout(15000)});
+    const response = await fetch(`latest.json?t=${Date.now()}`, {cache:'no-store', signal:AbortSignal.timeout(15000)});
     if (!response.ok) throw new Error('load');
     const data = await response.json();
     if (data.schemaVersion !== 1 || !data.players || typeof data.players !== 'object' || Array.isArray(data.players)) throw new Error('format');
