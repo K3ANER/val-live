@@ -21,12 +21,12 @@ class ScanTests(unittest.TestCase):
     def run_scan(self,vision,event=None):
         self.frames=FakeFrames({})
         return scan({},lambda *args:None,event or threading.Event(),vision,ROWS,lambda _:self.frames)
-    def test_stop_before_third_frame(self):
-        r=self.run_scan(FakeVision([COLLECTION,COLLECTION]));self.assertEqual(r['status'],'completed');self.assertEqual(self.frames.reads,2);self.assertTrue(self.frames.closed)
+    def test_stop_at_first_collection_frame(self):
+        r=self.run_scan(FakeVision([COLLECTION,COLLECTION]));self.assertEqual(r['status'],'completed');self.assertEqual(self.frames.reads,1);self.assertTrue(self.frames.closed)
     def test_mismatch_not_published(self):
-        r=self.run_scan(FakeVision([COLLECTION,COLLECTION],False));self.assertEqual(r['status'],'collection_unverified');self.assertFalse(r['weapons'])
-    def test_gameplay_resets_confirmation(self):
-        r=self.run_scan(FakeVision([COLLECTION,{'collection':False},COLLECTION,COLLECTION]));self.assertEqual(self.frames.reads,4);self.assertEqual(r['status'],'completed')
+        r=self.run_scan(FakeVision([COLLECTION,COLLECTION],False));self.assertEqual(r['status'],'collection_unverified');self.assertFalse(r['weapons']);self.assertEqual(self.frames.reads,1);self.assertTrue(self.frames.closed)
+    def test_gameplay_then_first_collection_stops(self):
+        r=self.run_scan(FakeVision([{'collection':False},COLLECTION]));self.assertEqual(self.frames.reads,2);self.assertEqual(r['status'],'completed')
     def test_unknown_and_uncertain_rejected(self):
         u={**COLLECTION,'skins':[{'weapon':'Vandal','skin':'Prime Vandal','certain':False}]};self.assertEqual(agreed(COLLECTION,u,ROWS),[]);self.assertEqual(agreed(COLLECTION,COLLECTION,{}),[])
     def test_cancel_reads_no_frames(self):
@@ -41,3 +41,4 @@ class ScanTests(unittest.TestCase):
     def test_cors_allowlist(self):
         c=app.test_client();self.assertNotIn('Access-Control-Allow-Origin',c.get('/api/health',headers={'Origin':'https://evil.test'}).headers);self.assertEqual(c.get('/api/health',headers={'Origin':'https://k3aner.github.io'}).headers['Access-Control-Allow-Origin'],'https://k3aner.github.io')
 if __name__=='__main__': unittest.main()
+
