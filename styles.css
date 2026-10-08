@@ -11,3 +11,16 @@
 .toolbar .secondary-action{background:#2a2d36;border:1px solid #424652;color:#f4f5f7}
 .toolbar .run-action{color:#ff4655;text-decoration:underline;font-weight:600;font-size:14px;overflow-wrap:anywhere}
 @media(max-width:650px){.toolbar #refresh,.toolbar .secondary-action{width:100%;}.toolbar .run-action{display:block;width:100%;text-align:center}}
+
+/* Scheduled automatic background updates (no manual GitHub steps) */
+.toolbar .player-choice{min-width:210px;flex:1 1 200px;max-width:340px}
+.toolbar .auto-indicator{display:inline-flex;gap:9px;align-items:center;padding:11px 14px;border-radius:10px;border:1px solid #305244;background:#1b3029;color:#a1edc4;font-size:13px;font-weight:700;white-space:nowrap}
+.pulse-dot{display:inline-block;width:8px;height:8px;background:#82dfaa;border-radius:50%;box-shadow:0 0 0 4px #82dfaa20}
+.toolbar #refresh{background:#30343c;border:1px solid #525660;font-size:14px;color:#f2f3f5;min-height:44px}
+.toolbar #refresh:hover{background:#404550}
+.toolbar #status{color:#e8eaee;font-weight:550}
+.toolbar #next-check{color:#a1edc4;font-size:13px}
+.toolbar small{flex:1 0 100%;font-size:12px;color:#9da4b2}
+#history p{padding:10px 0;border-bottom:1px solid #30343d;overflow-wrap:anywhere}
+#history p:last-child{border-bottom:0}
+@media(max-width:650px){.toolbar .player-choice{max-width:none;flex:1 0 100%}.toolbar .auto-indicator{flex:1;justify-content:center}.toolbar #refresh{width:100%}}
