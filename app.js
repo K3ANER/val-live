@@ -28,7 +28,9 @@ function render() {
   $('source').replaceChildren();
   const url = safeVideoUrl(result?.vod?.url);
   if (url) { const a = document.createElement('a'); a.href = url.href; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.textContent = `${result?.analysis?.status === 'source_unavailable' ? '분석 대상: ' : ''}${result.vod.title || '출처 영상'}`; $('source').append(a); }
-  else $('source').textContent = '등록된 출처 영상 없음';
+  else $('source').textContent = '확인된 컬렉션 출처 없음';
+  const message=document.createElement('p'); message.className='muted'; message.textContent=result?.sourceCheck?.message || '컬렉션 확인 대기 중'; $('source').append(message);
+  for(const channel of result?.channels || []) { const u=safeVideoUrl(channel.url); if(!u) continue; const a=document.createElement('a'); a.href=u.href; a.target='_blank'; a.rel='noopener noreferrer'; a.textContent=channel.label+' 채널 ↗'; a.style.marginRight='16px'; $('source').append(a); }
 }
 async function refresh() {
   const id = ++requestId; $('refresh').disabled = true; $('status').textContent = '저장된 결과를 불러오는 중…';
