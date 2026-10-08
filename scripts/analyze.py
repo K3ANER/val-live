@@ -106,25 +106,48 @@ def grab_frames(url: str, start: int, stop: int, work: Path,
     work.mkdir(parents=True, exist_ok=True)
     segment = _find_segment(work)
     if segment is None:
-        command = [
-            'yt-dlp', '--no-playlist', '--no-warnings', '--no-progress',
-            '-f', 'b[height<=480]/b', '--download-sections',
-            f'*{start}-{stop}', '--merge-output-format', 'mp4',
-            '--socket-timeout', '15', '--retries', '1',
-            '-o', str(work / 'segment.%(ext)s'), url
+        # Try different official yt-dlp clients and delivery formats.
+        # Each attempt has a strict time bound; never claim success without a media file.
+        strategies = [
+            ('android', 'b[height<=480]/b', True),
+            ('web_safari', 'b[height<=480]/b', True),
+            ('default', 'bv*[height<=480]+ba/b', True),
+            ('android', 'b[height<=480]/b', False),
         ]
-        try:
-            result = subprocess.run(command, capture_output=True, text=True,
-                                    timeout=240, check=False)
-        except subprocess.TimeoutExpired as exc:
-            raise RuntimeError('다시보기 짧은 구간 다운로드 시간 초과') from exc
-        segment = _find_segment(work)
-        if result.returncode != 0 or segment is None:
-            message = (result.stderr or '')[-220:].replace('\n', ' ')
-            # Do not leak downloader URLs or signed parameters in public logs.
-            if '403' in message or 'Forbidden' in message:
-                raise RuntimeError('다시보기 접근 거부(403)')
-            raise RuntimeError('다시보기 짧은 구간 다운로드 실패(제한 또는 공개 영상 아님)')
+        failures = []
+        for client, fmt, section_only in strategies:
+            for leftover in work.glob('segment.*'):
+                leftover.unlink(missing_ok=True)
+            command = [
+                'yt-dlp', '--no-playlist', '--no-warnings', '--no-progress',
+                '--js-runtimes', 'node', '--remote-components', 'ejs:npm',
+                '--extractor-args', f'youtube:player_client={client}',
+                '-f', fmt, '--merge-output-format', 'mp4',
+                '--socket-timeout', '12', '--retries', '1',
+                '--fragment-retries', '1',
+                '-o', str(work / 'segment.%(ext)s'),
+            ]
+            if section_only:
+                command += ['--download-sections', f'*{start}-{stop}']
+            else:
+                # Fallback: bounded download for short videos only.
+                if stop > 180:
+                    continue
+                command += ['--max-filesize', '120M']
+            command.append(url)
+            try:
+                result = subprocess.run(command, capture_output=True, text=True,
+                                        timeout=100, check=False)
+            except subprocess.TimeoutExpired:
+                failures.append(client + ':timeout')
+                continue
+            segment = _find_segment(work)
+            if result.returncode == 0 and segment is not None and segment.stat().st_size > 1024:
+                break
+            failures.append(client + (':403' if '403' in result.stderr else ':unavailable'))
+            segment = None
+        if segment is None:
+            raise RuntimeError('유튜브 구간 추출 실패(시도: ' + ', '.join(failures) + ')')
     mask = str(work / f'{prefix}_%04d.jpg')
     command = [
         'ffmpeg', '-hide_banner', '-loglevel', 'error',
