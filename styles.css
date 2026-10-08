@@ -6,3 +6,8 @@
 .skin-preview{display:block;width:100%;max-height:110px;object-fit:contain;margin:10px 0;border-radius:8px;background:#13151a;padding:6px}
 .method-tag{display:block;color:#8ee0b1}.vod-list{display:grid;gap:10px;margin:12px 0}.vod-item{padding:12px;background:#121418;border:1px solid #30343d;border-radius:9px}.vod-item a{color:#ff4655;overflow-wrap:anywhere}.vod-item small{display:block;color:#a9afbb}
 #source{display:flex;gap:12px;flex-wrap:wrap}#source a{overflow-wrap:anywhere}#status{overflow-wrap:anywhere}.toolbar{align-items:center}small{overflow-wrap:anywhere}
+
+/* One-player mobile scan controls */
+.toolbar .secondary-action{background:#2a2d36;border:1px solid #424652;color:#f4f5f7}
+.toolbar .run-action{color:#ff4655;text-decoration:underline;font-weight:600;font-size:14px;overflow-wrap:anywhere}
+@media(max-width:650px){.toolbar #refresh,.toolbar .secondary-action{width:100%;}.toolbar .run-action{display:block;width:100%;text-align:center}}
