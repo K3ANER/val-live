@@ -218,6 +218,11 @@ $('player').addEventListener('change',()=>{
 });
 $('search').addEventListener('input',render);
 $('refresh').addEventListener('click',()=>{void refresh()});
+$('run-scan').addEventListener('click',()=>{
+  const player=activePlayer();
+  $('status').textContent=player+' 즉시 분석: GitHub 로그인 후 Run workflow → 선수 선택 → Run workflow를 누르세요. 분석 완료 후 결과는 자동 갱신됩니다.';
+  window.open('https://github.com/K3ANER/val-live/actions/workflows/scan.yml','_blank','noopener,noreferrer');
+});
 document.addEventListener('visibilitychange',()=>{
   if(!document.hidden)void refresh({automatic:true});
 });
