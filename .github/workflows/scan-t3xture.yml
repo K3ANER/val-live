@@ -1,0 +1,12 @@
+name: VAL-LIVE · t3xture 스킨만 최신화
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  scan-selected-player:
+    uses: ./.github/workflows/scan.yml
+    with:
+      player: t3xture
+    permissions:
+      contents: write
