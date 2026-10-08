@@ -24,3 +24,9 @@
 #history p{padding:10px 0;border-bottom:1px solid #30343d;overflow-wrap:anywhere}
 #history p:last-child{border-bottom:0}
 @media(max-width:650px){.toolbar .player-choice{max-width:none;flex:1 0 100%}.toolbar .auto-indicator{flex:1;justify-content:center}.toolbar #refresh{width:100%}}
+
+/* Scan completion progress */
+.scan-progress{flex:1 0 100%;background:#16191e;border:1px solid #343944;border-radius:12px;padding:15px;min-width:0}
+.scan-progress-head{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:12px;color:#f4f5f7}
+.scan-progress progress{display:block;width:100%;height:15px;accent-color:#ff4655;border-radius:9px;overflow:hidden}
+.scan-progress small{display:block;margin-top:10px;color:#aeb5c2;font-size:12px}
