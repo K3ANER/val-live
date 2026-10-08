@@ -43,7 +43,7 @@ class ScannerTests(unittest.TestCase):
         def getter(url,start,stop,work,*,interval,prefix):
             calls.append((prefix,interval))
             if prefix!='probe':
-                raise AssertionError('Never inspect an unrelated game's detailed frames')
+                raise AssertionError("Never inspect an unrelated game's detailed frames")
             return [Path('/tmp/probe_0001.jpg')]
         with patch('analyze.read_frame_text',return_value='minecraft house build'):
             result=scan_video(VIDEO,CATALOG,getter=getter)
