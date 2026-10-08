@@ -8,16 +8,22 @@ on:
       - 'sources.json'
       - 'requirements.txt'
       - 'tests/test_fast_scan.py'
+  workflow_call:
+    inputs:
+      player:
+        description: 'Scan exactly this one player'
+        required: true
+        type: string
   workflow_dispatch:
     inputs:
       player:
-        description: 'all, TenZ, aspas, t3xture, something'
-        required: false
-        default: 'all'
+        description: 'Scan one player only'
+        required: true
+        default: 'TenZ'
         type: choice
-        options: [all, TenZ, aspas, t3xture, something]
+        options: [TenZ, aspas, t3xture, something]
   schedule:
-    - cron: '37 */6 * * *'
+    - cron: '37 0,6,12,18 * * *'
 permissions:
   contents: write
 concurrency:
@@ -45,8 +51,26 @@ jobs:
           python -m unittest discover -s tests -p 'test_fast_scan.py' -v
       - name: Discover VODs and scan
         env:
-          PLAYER: ${{ inputs.player || 'all' }}
-        run: python scripts/scan.py
+          REQUESTED_PLAYER: ${{ inputs.player || '' }}
+        run: |
+          # Interactive/reusable runs: honor only the selected player.
+          # Scheduled runs: rotate ONE player (not all four).
+          case "$REQUESTED_PLAYER" in
+            TenZ|aspas|t3xture|something) PLAYER="$REQUESTED_PLAYER" ;;
+            "")
+              HOUR="$(date -u +%-H)"
+              case "$((HOUR / 6))" in
+                0) PLAYER="TenZ" ;;
+                1) PLAYER="aspas" ;;
+                2) PLAYER="t3xture" ;;
+                3) PLAYER="something" ;;
+              esac
+              ;;
+            *) echo 'Unsupported player'; exit 1 ;;
+          esac
+          export PLAYER
+          echo "Running VAL-LIVE for ONE player only: $PLAYER"
+          python scripts/scan.py
       - name: Publish discoveries, OCR matches and status
         run: |
           git config user.name 'github-actions[bot]'
