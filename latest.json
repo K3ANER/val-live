@@ -13,22 +13,82 @@
         "status": "source_unavailable",
         "message": "분석 대상 영상을 찾았으나 실제 영상 화면에 접근하지 못했습니다. 스킨 확인 대기 중입니다.",
         "attemptedAt": "2026-10-08T01:16:28.945Z"
+      },
+      "channels": [
+        {
+          "label": "YouTube",
+          "url": "https://www.youtube.com/@TenZ"
+        },
+        {
+          "label": "Twitch",
+          "url": "https://www.twitch.tv/tenz"
+        }
+      ],
+      "sourceCheck": {
+        "status": "unverified",
+        "message": "선수 채널 확인 · 영상 재생이 로딩에서 멈춰 컬렉션 미확인"
       }
     },
     "t3xture": {
       "checkedAt": null,
       "vod": null,
-      "weapons": {}
+      "weapons": {},
+      "channels": [
+        {
+          "label": "YouTube",
+          "url": "https://www.youtube.com/@t3xture"
+        }
+      ],
+      "sourceCheck": {
+        "status": "unverified",
+        "message": "선수 채널 확인 · 영상 재생이 로딩에서 멈춰 컬렉션 미확인"
+      },
+      "candidateVideo": {
+        "url": "https://www.youtube.com/watch?v=ZhuepqaKCos",
+        "title": "2026 챔피언스 스킨 리뷰"
+      }
     },
     "aspas": {
       "checkedAt": null,
       "vod": null,
-      "weapons": {}
+      "weapons": {},
+      "channels": [
+        {
+          "label": "YouTube",
+          "url": "https://www.youtube.com/@aspaszin"
+        },
+        {
+          "label": "Twitch",
+          "url": "https://www.twitch.tv/aspaszin"
+        }
+      ],
+      "sourceCheck": {
+        "status": "unverified",
+        "message": "선수 채널 확인 · 영상 재생이 로딩에서 멈춰 컬렉션 미확인"
+      },
+      "candidateVideo": {
+        "url": "https://www.youtube.com/watch?v=_KtO6nNeeEQ",
+        "title": "ASPAS É IMPARÁVEL DE JETT"
+      }
     },
     "something": {
       "checkedAt": null,
       "vod": null,
-      "weapons": {}
+      "weapons": {},
+      "channels": [
+        {
+          "label": "YouTube",
+          "url": "https://www.youtube.com/channel/UCyTiK5pX90KhAFUzHwzBYzw"
+        },
+        {
+          "label": "Twitch",
+          "url": "https://www.twitch.tv/smthlikeyou11"
+        }
+      ],
+      "sourceCheck": {
+        "status": "unverified",
+        "message": "선수 채널 확인 · Twitch 공개 다시보기 없음 · 컬렉션 미확인"
+      }
     }
   }
 }
