@@ -38,9 +38,11 @@ def should_scan(old, current_time, force=False):
 
 def run():
     all_sources=read_json('sources.json',{})
-    selected=os.getenv('PLAYER','all')
-    sources=(all_sources if selected=='all' else
-             {selected:all_sources[selected]} if selected in all_sources else {})
+    # Never scan all players in the same job; the scheduler chooses exactly one.
+    selected=os.getenv('PLAYER','TenZ')
+    if selected not in all_sources:
+        raise SystemExit('Invalid player selection; only a single configured player is allowed.')
+    sources={selected:all_sources[selected]}
     latest=read_json('latest.json',{'schemaVersion':1,'players':{}})
     latest.setdefault('players',{})
     state=read_json('scan_state.json',{})
@@ -126,6 +128,27 @@ def run():
                 record['sourceCheck']={
                     'status':result['status'],
                     'message': labels.get(result['status'],'고속 분석 상태 확인 중')}
+    # Publish only AFTER the single-player scan completes, so the website
+    # never sees a partially processed VOD or unverified loadout.
+    finished=datetime.now(timezone.utc).isoformat()
+    for player,(vods,_) in discovery.items():
+        record=latest['players'][player]
+        own_events=[item for item in events if item.get('player')==player]
+        status=(own_events[-1]['status'] if own_events
+                else 'no_new_vod' if vods else 'no_public_vod')
+        record['lastScanFinishedAt']=finished
+        record['lastAutomaticRun']={
+            'status':status,
+            'finishedAt':finished,
+            'videosFound':len(vods),
+            'videosExamined':len(own_events),
+        }
+        if not own_events and vods:
+            record['sourceCheck']={
+                'status':'already_checked',
+                'message':'새로운 공개 다시보기 없음 · 이전 검증 결과 유지'
+            }
+    latest['lastAutomaticPublishAt']=finished
     write_json('latest.json',latest)
     write_json('scan_state.json',state)
     write_json('history.json',(events+history)[:80])
