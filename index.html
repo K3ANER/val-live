@@ -30,6 +30,7 @@
       <div class="auto-indicator" aria-label="자동 최신화 예약됨"><span class="pulse-dot"></span> 자동 분석 예약됨</div>
       <button type="button" id="run-scan">지금 스킨 분석 시작 ↗</button>
       <button type="button" id="refresh">최신 결과 다시 확인 ↻</button>
+      <div class="scan-progress" aria-label="스킨 분석 진행 상황"><div class="scan-progress-head"><strong id="scan-stage">분석 상태 확인 중</strong><strong id="scan-percent">—</strong></div><progress id="scan-progress-bar" max="100" value="0"></progress><small id="scan-detail">실행 상태를 불러오는 중…</small></div>
       <p id="status" role="status" aria-live="polite">저장된 최신 확인 결과 불러오는 중…</p>
       <p id="next-check" class="schedule-text">다음 자동 확인 일정 확인 중…</p>
       <small>즉시 분석은 GitHub 로그인 후 Run workflow로 실행됩니다. 완료되면 사이트에 결과가 자동 반영됩니다. 매 6시간마다 선수 한 명씩 돌아가며 검색합니다. 분석이 끝나서 결과가 게시되면 이 화면도 약 1분 간격으로 자동 갱신됩니다. 영상 접근 제한이 있으면 미확인으로 표시합니다.</small>
