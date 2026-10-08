@@ -16,6 +16,11 @@ on:
         type: string
   workflow_dispatch:
     inputs:
+      force_rescan:
+        description: 'Recheck previously scanned videos'
+        required: false
+        type: boolean
+        default: true
       player:
         description: 'Scan one player only'
         required: true
@@ -52,6 +57,7 @@ jobs:
       - name: Discover VODs and scan
         env:
           REQUESTED_PLAYER: ${{ inputs.player || '' }}
+          REQUESTED_FORCE_RESCAN: ${{ inputs.force_rescan || 'false' }}
         run: |
           # Interactive/reusable runs: honor only the selected player.
           # Scheduled runs: rotate ONE player (not all four).
@@ -69,6 +75,7 @@ jobs:
             *) echo 'Unsupported player'; exit 1 ;;
           esac
           export PLAYER
+          if [ "$REQUESTED_FORCE_RESCAN" = "true" ]; then export FORCE_RESCAN=1; fi
           echo "Running VAL-LIVE for ONE player only: $PLAYER"
           python scripts/scan.py
       - name: Publish discoveries, OCR matches and status
