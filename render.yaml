@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: val-live-scanner
+    runtime: docker
+    plan: starter
+    healthCheckPath: /api/health
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: SCAN_TOKEN
+        sync: false
+      - key: VISION_MODEL
+        value: gpt-4.1
+      - key: DATA_DIR
+        value: /data
+      - key: ALLOWED_ORIGINS
+        value: https://k3aner.github.io
+    disk:
+      name: results
+      mountPath: /data
+      sizeGB: 1
