@@ -153,6 +153,14 @@ function historyCards(player){
     area.append(row);
   }
 }
+function showProgress(record){
+  const last=record.lastAutomaticRun||{};
+  const stage=$('scan-stage'),percent=$('scan-percent'),bar=$('scan-progress-bar'),detail=$('scan-detail');
+  if(!last.finishedAt){stage.textContent='분석 대기';percent.textContent='—';bar.removeAttribute('value');detail.textContent='아직 완료된 분석 기록이 없습니다. 진행 중 퍼센트는 제공되지 않습니다.';return;}
+  stage.textContent='최근 분석 종료 · '+(last.status==='verified'?'스킨 검증 완료':last.status==='error'?'분석 오류':'스킨 미확인 또는 영상 없음');
+  percent.textContent='100%';bar.value=100;
+  detail.textContent='완료 시각 '+formatDate(last.finishedAt)+' · 영상 '+(last.videosExamined||0)+'개 분석 · 100%는 작업 종료를 의미하며 스킨 확인 성공률이 아닙니다.';
+}
 function render(){
   const player=activePlayer();
   const record=data?.players?.[player]||{};
@@ -167,6 +175,7 @@ function render(){
   const next=nextScheduledRun(player);
   $('next-check').textContent=player+' 다음 자동 확인 예정: '+
     formatDate(next.toISOString())+' (한국시간, 실행이 지연될 수 있음)';
+  showProgress(record);
   skinCards(record);
   videoCards(record);
   historyCards(player);
