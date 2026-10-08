@@ -49,6 +49,8 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq ffmpeg tesseract-ocr
+          # yt-dlp requires an external JavaScript runtime for YouTube
+          node --version
           python -m pip install --disable-pip-version-check -r requirements.txt
       - name: Verify scanner and fast VALORANT-only tests
         run: |
