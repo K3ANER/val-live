@@ -55,33 +55,43 @@
     "t3xture": {
       "checkedAt": null,
       "vod": {
-        "url": "https://www.twitch.tv/t3xturekr/videos?filter=archives&sort=time",
-        "title": "t3xturekr - Past Broadcasts sorted by Date",
+        "url": "https://www.youtube.com/watch?v=ncLFtjkW9k8",
+        "title": "마스크 뒤에 숨겨진 광대",
         "publishedAt": null
       },
       "weapons": {},
       "channels": [
         {
-          "label": "Twitch",
-          "url": "https://www.twitch.tv/t3xturekr"
+          "label": "YouTube",
+          "url": "https://www.youtube.com/@t3xture_full/videos"
+        },
+        {
+          "label": "YouTube",
+          "url": "https://www.youtube.com/@t3xture"
         }
       ],
       "sourceCheck": {
-        "status": "not_found",
-        "message": "재생 가능한 공개 라이브 다시보기를 찾지 못했습니다."
+        "status": "error",
+        "message": "공개 다시보기 접근 또는 영상 해석 실패"
       },
       "candidateVideo": {
         "url": "https://www.youtube.com/watch?v=ZhuepqaKCos",
         "title": "2026 챔피언스 스킨 리뷰"
       },
-      "discoveredAt": "2026-10-08T14:40:51.719703+00:00",
-      "discoveredVods": [],
-      "lastScanFinishedAt": "2026-10-08T14:40:52.674497+00:00",
+      "discoveredAt": "2026-10-08T14:44:22.831273+00:00",
+      "discoveredVods": [
+        {
+          "url": "https://www.youtube.com/watch?v=ncLFtjkW9k8",
+          "title": "마스크 뒤에 숨겨진 광대",
+          "platform": "YouTube"
+        }
+      ],
+      "lastScanFinishedAt": "2026-10-08T14:44:31.292999+00:00",
       "lastAutomaticRun": {
-        "status": "no_public_vod",
-        "finishedAt": "2026-10-08T14:40:52.674497+00:00",
-        "videosFound": 0,
-        "videosExamined": 0
+        "status": "error",
+        "finishedAt": "2026-10-08T14:44:31.292999+00:00",
+        "videosFound": 1,
+        "videosExamined": 1
       }
     },
     "aspas": {
@@ -148,5 +158,5 @@
       "discoveredVods": []
     }
   },
-  "lastAutomaticPublishAt": "2026-10-08T14:40:52.674497+00:00"
+  "lastAutomaticPublishAt": "2026-10-08T14:44:31.292999+00:00"
 }
