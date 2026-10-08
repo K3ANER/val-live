@@ -96,14 +96,14 @@
         }
       ],
       "sourceCheck": {
-        "status": "error",
-        "message": "공개 다시보기 접근 또는 영상 해석 실패"
+        "status": "vod_found",
+        "message": "공개 VOD 1개 발견 · 24초 간격 고속 탐색 · 발로란트 화면만 세부 분석"
       },
       "candidateVideo": {
         "url": "https://www.youtube.com/watch?v=_KtO6nNeeEQ",
         "title": "ASPAS É IMPARÁVEL DE JETT"
       },
-      "discoveredAt": "2026-10-08T07:55:35.889009+00:00",
+      "discoveredAt": "2026-10-08T08:26:02.610064+00:00",
       "discoveredVods": [
         {
           "url": "https://www.youtube.com/watch?v=N0Ted78Ysu0",
