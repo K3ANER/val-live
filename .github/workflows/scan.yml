@@ -7,6 +7,7 @@ on:
       - 'scripts/**'
       - 'sources.json'
       - 'requirements.txt'
+      - 'tests/test_fast_scan.py'
   workflow_dispatch:
     inputs:
       player:
@@ -38,8 +39,10 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y -qq ffmpeg tesseract-ocr
           python -m pip install --disable-pip-version-check -r requirements.txt
-      - name: Verify scanner Python source
-        run: python -m compileall -q scripts
+      - name: Verify scanner and fast VALORANT-only tests
+        run: |
+          python -m compileall -q scripts
+          python -m unittest discover -s tests -p 'test_fast_scan.py' -v
       - name: Discover VODs and scan
         env:
           PLAYER: ${{ inputs.player || 'all' }}

@@ -12,9 +12,9 @@
 <body>
   <header><a class="brand" href="#">VAL<span> LIVE</span></a><nav><a href="#skins">스킨 컬렉션</a><a href="#videos">자동 탐색</a></nav></header>
   <main>
-    <section class="hero"><p class="eyebrow">AUTOMATIC VALORANT VOD SCANNER</p><h1>최신화 한 번,<br><span>라이브 다시보기 자동 탐색.</span></h1>
-      <p>TenZ · aspas · t3xture · something의 공식 방송 채널에서 공개 다시보기를 자동으로 검색합니다. 영상 주소를 직접 입력할 필요가 없습니다.</p>
-      <div class="notice">무료 OCR 분석 · 실제 방송 접근/화면 인식 결과에 따라 스킨이 미확인일 수 있습니다.</div>
+    <section class="hero"><p class="eyebrow">FAST VALORANT-ONLY VOD SCANNER</p><h1>고속으로 훑고,<br><span>발로란트 플레이만 분석.</span></h1>
+      <p>TenZ · aspas · t3xture · something의 공식 방송 채널에서 공개 다시보기를 자동으로 검색합니다. 영상 주소를 직접 입력할 필요가 없습니다. 다른 게임을 플레이하는 구간은 건너뛰도록 고속 화면 탐색을 적용했습니다.</p>
+      <div class="notice">24초 간격 빠른 탐색 → 발로란트 화면 발견 시 4초 간격 세부 검사 · 유료 AI API 없음</div>
     </section>
     <section class="toolbar" aria-label="최신화 메뉴">
       <label>선수 선택<select id="player"><option>TenZ</option><option>aspas</option><option>t3xture</option><option>something</option></select></label>
@@ -34,7 +34,7 @@
       <div id="source"></div>
     </section>
     <section class="panel guide"><h2>최근 자동 분석 기록</h2><div id="history"><p class="muted">불러오는 중…</p></div></section>
-    <section class="panel guide"><h2>자동화 안내</h2><p>유튜브·트위치의 공개 다시보기를 자동 검색합니다. 영상에서 COLLECTION 화면과 같은 스킨 이름을 서로 다른 두 프레임에서 읽었을 때만 확인 처리합니다. 실패하거나 확인되지 않은 총기는 '미확인'으로 남습니다. 초기 1회 서버 연결 전에는 버튼이 저장된 결과만 새로 불러옵니다.</p>
+    <section class="panel guide"><h2>자동화 안내</h2><p>유튜브·트위치의 공개 다시보기를 자동 검색합니다. 먼저 24초 간격으로 영상을 빠르게 훑고, 발로란트 플레이 화면이 확인된 구간만 4초 간격으로 검사합니다. 컬렉션 화면에서 같은 스킨 이름 또는 이미지를 서로 다른 두 프레임에서 확인했을 때만 확정합니다. 실패하거나 확인되지 않은 총기는 '미확인'으로 남습니다. 플레이 중 보이는 3D 총기를 이미지로 식별하는 기능은 아직 없습니다. 영상 접근/화면 인식이 실패하면 미확인으로 남습니다. 서버 연결 전 최신화 버튼은 저장된 결과만 새로 불러옵니다.</p>
       <p id="setup" class="muted"></p></section>
   </main>
   <footer>VAL LIVE · Riot Games와 무관한 비공식 프로젝트 · 라이브/다시보기 이용 제한에 따라 분석이 실패할 수 있습니다.</footer>

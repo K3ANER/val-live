@@ -42,8 +42,8 @@ function render(){
   for(const c of r.channels||[]){const u=safeURL(c.url);if(u){$('source').append(anchor(u,(c.label||'채널')+' ↗'));}}
   const recent=history.filter(x=>x.player===player).slice(0,8);$('history').replaceChildren();
   if(!recent.length){const p=document.createElement('p');p.className='muted';p.textContent='선택 선수의 분석 기록 없음';$('history').append(p)}
-  for(const item of recent){const row=document.createElement('p');let label=item.status==='verified'?'스킨 확인':item.status==='candidate_found'?'스킨 후보 (미확정)':['collection_no_text','collection_no_text_or_image'].includes(item.status)?'컬렉션 탐색 · 이미지/텍스트 미확인':item.status==='error'?'접근/분석 오류':'컬렉션 장면 미발견';
-    row.textContent=label+' · '+time(item.scanned_at)+' · '+((item.candidates||[]).map(c=>c.skin+(c.method==='image_template_match'?' [이미지]':'')).join(', ')||'확인 항목 없음');
+  for(const item of recent){const row=document.createElement('p');let label=item.status==='verified'?'스킨 확인':item.status==='candidate_found'?'스킨 후보 (미확정)':['collection_no_text','collection_no_text_or_image'].includes(item.status)?'컬렉션 탐색 · 이미지/텍스트 미확인':item.status==='no_valorant'?'발로란트 화면 미발견 · 다른 게임 구간 건너뜀':item.status==='valorant_no_collection'?'발로란트 감지 · 컬렉션 없음':item.status==='error'?'접근/분석 오류':'컬렉션 장면 미발견';
+    row.textContent=label+' · '+time(item.scanned_at)+(item.analysis_mode==='fast_valorant_only'?' · 24초 빠른 탐색 / 4초 세부 검사':'')+' · '+((item.candidates||[]).map(c=>c.skin+(c.method==='image_template_match'?' [이미지]':'')).join(', ')||'확인 항목 없음');
     const url=safeURL(item.url);if(url)row.append(' ',anchor(url,'영상 ↗'));
     $('history').append(row)}
 }

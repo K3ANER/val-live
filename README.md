@@ -1,21 +1,24 @@
-# VAL-LIVE 자동 영상 검색 + 스킨 이미지 인식
-TenZ, aspas, t3xture, something의 공개 YouTube/Twitch VOD를 무료 GitHub Actions에서 검색하고, 컬렉션 화면이 나타난 경우 스킨명 OCR 및 무료 [Valorant-API](https://valorant-api.com/) 아이콘 이미지 대조를 수행합니다.
+# VAL-LIVE: 발로란트 영상만 고속 탐색 (무료)
+선수: TenZ, aspas, t3xture, something.
 
-## 실제 작동 범위
-- 영상 주소 **직접 입력 불필요**: `sources.json`의 채널을 자동 탐색
-- 6시간마다 자동 검색/분석 (GitHub Actions 무료 사용량 범위)
-- 공개 비디오만 다운로드 가능. 로그인/DRM/접근 제한을 우회하지 않음.
-- COLLECTION 화면을 OCR로 판별하고 텍스트 또는 이미지가 두 프레임에서 일치하면 `latest.json`에 검증 처리
-- 기존 검증 결과 유지. 확신하지 못하는 스킨은 '미확인'
-- 모바일/PC 웹 인터페이스 (GitHub Pages)
+## 분석 과정
+1. 지정한 유튜브·트위치 채널에서 **실제 재생 가능한 공개 VOD** 주소를 자동 수집합니다 (주소 직접 입력 불필요).
+2. 영상 전체를 정상 속도로 보는 대신 시작/중간/끝을 포함한 **최대 5개의 짧은 구간**만 추출합니다. 각 구간에서 **24초마다 1프레임**을 OCR로 검사합니다.
+3. 'BUY PHASE', 'SPIKE PLANTED' 등 발로란트 HUD 또는 발로란트 **COLLECTION** 화면으로 확인되지 않은 구간은 **상세 분석을 건너뜁니다**.
+4. 발로란트 화면이 확인된 구간에서만 **4초마다 1프레임**을 추출해 COLLECTION에 있는 스킨 이름 OCR / 무료 Valorant-API 스킨 아이콘 이미지 비교를 실행합니다.
+5. 다른 프레임 2개에서 동일 스킨을 확인한 경우에만 `latest.json`에 확정합니다. 게임 화면에서 스킨을 추정해서 등록하지 않습니다. 확신이 없다면 '미확인'으로 표시합니다.
+6. GitHub Actions는 6시간마다 새 VOD를 발견해 검사하고, 결과를 GitHub Pages로 자동 게시합니다.
 
-## 시작
-GitHub Actions → 'VAL-LIVE – 무료 OCR 및 스킨 이미지 자동 비교' → Run workflow.
-스케줄 실행은 Actions가 허용되어 있으면 6시간마다 자동 시도됩니다.
-GitHub Pages가 아직 미설정이라면 Settings → Pages → Deploy from a branch → main → /(root).
+## 제한
+- **3D 실전 총기 스킨 인식**은 아직 지원하지 않습니다. 확인 방법은 컬렉션 화면의 이미지 또는 텍스트 비교입니다.
+- 녹화 전체를 빠짐없이 확인하는 것은 아닙니다. **스킵 샘플링**이기 때문에 짧은 컬렉션 화면이 샘플 구간 밖에 있으면 놓칠 수 있습니다.
+- OCR 기반 VALORANT 여부 판정이므로 화면에 HUD 텍스트가 잘 안 보이면 발로란트 방송이라도 건너뛸 수 있습니다.
+- 공개되어도 유튜브/트위치 다운로드 제한에 걸리면 분석할 수 없습니다. 제한을 우회하지 않습니다.
+- GitHub Actions 무료 사용량에 한도가 있습니다. 별도 유료 AI API 키는 필요 없습니다.
+- GitHub Pages의 최신화 버튼은 현재 저장된 결과를 갱신하는 기능입니다. 안전한 인증 서버가 없는 상태에서 웹 브라우저가 Actions를 직접 실행할 수는 없습니다. 화면의 "GitHub에서 즉시 분석 실행" 링크로 수동 실행하거나, 6시간마다 예약된 실행을 사용하세요.
 
-## 원클릭 버튼의 제약
-GitHub Pages는 정적 호스팅으로 비밀 토큰을 안전하게 보관할 수 없어 웹 버튼만으로 GitHub Actions 작업을 실행할 수 없습니다. 별도 Worker 또는 로그인이 필요한 GitHub Actions 수동 실행이 필요합니다. Worker 토큰을 브라우저에 넣지 마세요. 서버 미설정 상태에서는 최신화 버튼이 이미 분석된 결과만 새로 불러옵니다.
-
-## 이미지 인식 한계
-무료 아이콘 비교는 컬렉션의 평면 총기 아이콘과 일치할 때만 유효하며, 3D 게임 플레이 중 총기 스킨 인식기는 아닙니다. 자동 탐색 실패나 유사한 스킨 사이의 오인식 가능성이 있습니다. 공개 VOD 실제 성공 여부는 GitHub Actions의 실행 기록으로 확인하세요.
+## 설치/확인
+- GitHub 저장소: https://github.com/K3ANER/val-live
+- 모바일: https://k3aner.github.io/val-live/
+- Actions: https://github.com/K3ANER/val-live/actions/workflows/scan.yml
+- 빠른 스캔 단위 테스트: `python -m unittest discover -s tests -p 'test_fast_scan.py' -v`
