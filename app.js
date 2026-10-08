@@ -8,6 +8,7 @@ function safeVideoUrl(value) {
 }
 function render() {
   const result = snapshot?.players?.[$('player').value];
+  $('vod-status').textContent = result?.analysis?.message || '';
   const query = $('search').value.trim().toLowerCase();
   const verified = weapons.filter(w => result?.weapons?.[w]?.verified === true && typeof result.weapons[w].skin === 'string' && result.weapons[w].skin.trim());
   $('verified-count').textContent = `확인 ${verified.length}개`;
@@ -25,7 +26,7 @@ function render() {
   if (!$('weapon-grid').children.length) $('weapon-grid').textContent = '검색 결과가 없습니다.';
   $('source').replaceChildren();
   const url = safeVideoUrl(result?.vod?.url);
-  if (url) { const a = document.createElement('a'); a.href = url.href; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.textContent = result.vod.title || '확인에 사용한 영상'; $('source').append(a); }
+  if (url) { const a = document.createElement('a'); a.href = url.href; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.textContent = `${result?.analysis?.status === 'source_unavailable' ? '분석 대상: ' : ''}${result.vod.title || '출처 영상'}`; $('source').append(a); }
   else $('source').textContent = '등록된 출처 영상 없음';
 }
 async function refresh() {
