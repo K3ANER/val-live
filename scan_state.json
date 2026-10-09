@@ -13,9 +13,9 @@
     "status": "error"
   },
   "aspas|https://www.youtube.com/watch?v=N0Ted78Ysu0": {
-    "scanned_at": "2026-10-08T07:55:35.889009+00:00",
+    "scanned_at": "2026-10-09T07:00:52.980571+00:00",
     "status": "error",
-    "revision": "fast-valorant-v1"
+    "revision": "latest-vod-priority-v2"
   },
   "t3xture|https://www.twitch.tv/t3xturekr/videos?filter=archives&sort=time": {
     "scanned_at": "2026-10-08T07:30:13.734243+00:00",

@@ -102,23 +102,23 @@
       "weapons": {},
       "channels": [
         {
-          "label": "Twitch",
-          "url": "https://www.twitch.tv/aspaszin"
+          "label": "YouTube",
+          "url": "https://www.youtube.com/@aspaszin"
         },
         {
           "label": "YouTube",
-          "url": "https://www.youtube.com/@aspaszin"
+          "url": "https://www.youtube.com/@aspaszin/videos"
         }
       ],
       "sourceCheck": {
-        "status": "already_checked",
-        "message": "새로운 공개 다시보기 없음 · 이전 검증 결과 유지"
+        "status": "error",
+        "message": "공개 다시보기 접근 또는 영상 해석 실패"
       },
       "candidateVideo": {
         "url": "https://www.youtube.com/watch?v=_KtO6nNeeEQ",
         "title": "ASPAS É IMPARÁVEL DE JETT"
       },
-      "discoveredAt": "2026-10-08T08:36:11.933221+00:00",
+      "discoveredAt": "2026-10-09T07:00:52.980571+00:00",
       "discoveredVods": [
         {
           "url": "https://www.youtube.com/watch?v=N0Ted78Ysu0",
@@ -126,12 +126,12 @@
           "platform": "YouTube"
         }
       ],
-      "lastScanFinishedAt": "2026-10-08T08:36:13.540501+00:00",
+      "lastScanFinishedAt": "2026-10-09T07:01:08.663688+00:00",
       "lastAutomaticRun": {
-        "status": "no_new_vod",
-        "finishedAt": "2026-10-08T08:36:13.540501+00:00",
+        "status": "error",
+        "finishedAt": "2026-10-09T07:01:08.663688+00:00",
         "videosFound": 1,
-        "videosExamined": 0
+        "videosExamined": 1
       }
     },
     "something": {
@@ -173,5 +173,5 @@
       }
     }
   },
-  "lastAutomaticPublishAt": "2026-10-09T01:03:02.954896+00:00"
+  "lastAutomaticPublishAt": "2026-10-09T07:01:08.663688+00:00"
 }
