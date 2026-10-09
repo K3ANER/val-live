@@ -1,5 +1,27 @@
 [
   {
+    "player": "TenZ",
+    "url": "https://www.youtube.com/watch?v=LQDgNJdlFIA",
+    "title": "100T vs. G2 VCT CHAMPIONS SHANGHAI MORE CREDS PLS SPRAY !COINBASE #COINBASEPARTNER",
+    "scanned_at": "2026-10-09T01:02:40.370861+00:00",
+    "status": "error",
+    "candidates": [],
+    "collection_seen": false,
+    "valorant_seen": false,
+    "frames_sampled": 0,
+    "skipped_non_valorant_segments": 0,
+    "analysis_mode": "fast_valorant_only",
+    "probe_interval_seconds": 24,
+    "detail_interval_seconds": 4,
+    "errors": [
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable, android:unavailable)",
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)",
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)",
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)",
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)"
+    ]
+  },
+  {
     "player": "something",
     "url": "https://www.youtube.com/watch?v=5jgSqvaEWIo",
     "title": "PRX Something is The BEST DUELIST in Valorant! [APAC]",

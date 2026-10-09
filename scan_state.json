@@ -39,5 +39,10 @@
     "scanned_at": "2026-10-08T18:58:07.148619+00:00",
     "status": "error",
     "revision": "latest-vod-priority-v2"
+  },
+  "TenZ|https://www.youtube.com/watch?v=LQDgNJdlFIA": {
+    "scanned_at": "2026-10-09T01:02:36.683178+00:00",
+    "status": "error",
+    "revision": "latest-vod-priority-v2"
   }
 }

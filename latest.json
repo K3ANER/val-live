@@ -4,8 +4,8 @@
     "TenZ": {
       "checkedAt": null,
       "vod": {
-        "url": "https://www.twitch.tv/videos/2894146974",
-        "title": "T1 vs. NRG VCT CHAMPIONS",
+        "url": "https://www.youtube.com/watch?v=LQDgNJdlFIA",
+        "title": "100T vs. G2 VCT CHAMPIONS SHANGHAI MORE CREDS PLS SPRAY !COINBASE #COINBASEPARTNER",
         "publishedAt": null
       },
       "weapons": {},
@@ -16,10 +16,6 @@
       },
       "channels": [
         {
-          "label": "Twitch",
-          "url": "https://www.twitch.tv/tenz"
-        },
-        {
           "label": "YouTube",
           "url": "https://www.youtube.com/@TenZ"
         },
@@ -29,8 +25,8 @@
         }
       ],
       "sourceCheck": {
-        "status": "no_valorant",
-        "message": "표본 화면에서 발로란트 플레이를 찾지 못해 다른 게임 구간을 건너뛰었습니다."
+        "status": "error",
+        "message": "공개 다시보기 접근 또는 영상 해석 실패"
       },
       "latestBroadcast": {
         "date": "2026-10-07",
@@ -38,19 +34,21 @@
         "source": "https://vodarchive.com/vods/tenz",
         "skinVerified": false
       },
-      "discoveredAt": "2026-10-08T07:55:35.889009+00:00",
+      "discoveredAt": "2026-10-09T01:02:36.683178+00:00",
       "discoveredVods": [
         {
-          "url": "https://www.twitch.tv/videos/2894146974",
-          "title": "T1 vs. NRG VCT CHAMPIONS",
-          "platform": "Twitch"
-        },
-        {
-          "url": "https://www.twitch.tv/videos/2892559476",
-          "title": "apac ranked time",
-          "platform": "Twitch"
+          "url": "https://www.youtube.com/watch?v=LQDgNJdlFIA",
+          "title": "100T vs. G2 VCT CHAMPIONS SHANGHAI MORE CREDS PLS SPRAY !COINBASE #COINBASEPARTNER",
+          "platform": "YouTube"
         }
-      ]
+      ],
+      "lastScanFinishedAt": "2026-10-09T01:03:02.954896+00:00",
+      "lastAutomaticRun": {
+        "status": "error",
+        "finishedAt": "2026-10-09T01:03:02.954896+00:00",
+        "videosFound": 1,
+        "videosExamined": 1
+      }
     },
     "t3xture": {
       "checkedAt": null,
@@ -175,5 +173,5 @@
       }
     }
   },
-  "lastAutomaticPublishAt": "2026-10-08T18:58:20.291870+00:00"
+  "lastAutomaticPublishAt": "2026-10-09T01:03:02.954896+00:00"
 }
