@@ -1,5 +1,27 @@
 [
   {
+    "player": "t3xture",
+    "url": "https://www.youtube.com/watch?v=ncLFtjkW9k8",
+    "title": "마스크 뒤에 숨겨진 광대",
+    "scanned_at": "2026-10-10T12:56:23.707169+00:00",
+    "status": "error",
+    "candidates": [],
+    "collection_seen": false,
+    "valorant_seen": false,
+    "frames_sampled": 0,
+    "skipped_non_valorant_segments": 0,
+    "analysis_mode": "fast_valorant_only",
+    "probe_interval_seconds": 24,
+    "detail_interval_seconds": 4,
+    "errors": [
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable, android:unavailable)",
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)",
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)",
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)",
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)"
+    ]
+  },
+  {
     "player": "TenZ",
     "url": "https://www.youtube.com/watch?v=74PSL5tIq9w",
     "title": "100T vs. NS VCT CHAMPIONS SHANGHAI MORE CREDS PLS SPRAY !COINBASE #COINBASEPARTNER",
