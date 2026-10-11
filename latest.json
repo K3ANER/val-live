@@ -76,7 +76,7 @@
         "url": "https://www.youtube.com/watch?v=ZhuepqaKCos",
         "title": "2026 챔피언스 스킨 리뷰"
       },
-      "discoveredAt": "2026-10-10T12:56:22.256621+00:00",
+      "discoveredAt": "2026-10-11T12:57:30.210633+00:00",
       "discoveredVods": [
         {
           "url": "https://www.youtube.com/watch?v=ncLFtjkW9k8",
@@ -84,10 +84,10 @@
           "platform": "YouTube"
         }
       ],
-      "lastScanFinishedAt": "2026-10-10T12:56:51.171033+00:00",
+      "lastScanFinishedAt": "2026-10-11T12:57:50.728729+00:00",
       "lastAutomaticRun": {
         "status": "error",
-        "finishedAt": "2026-10-10T12:56:51.171033+00:00",
+        "finishedAt": "2026-10-11T12:57:50.728729+00:00",
         "videosFound": 1,
         "videosExamined": 1
       }
@@ -173,5 +173,5 @@
       }
     }
   },
-  "lastAutomaticPublishAt": "2026-10-11T06:58:06.680819+00:00"
+  "lastAutomaticPublishAt": "2026-10-11T12:57:50.728729+00:00"
 }
