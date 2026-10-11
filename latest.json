@@ -25,8 +25,8 @@
         }
       ],
       "sourceCheck": {
-        "status": "error",
-        "message": "공개 다시보기 접근 또는 영상 해석 실패"
+        "status": "already_checked",
+        "message": "새로운 공개 다시보기 없음 · 이전 검증 결과 유지"
       },
       "latestBroadcast": {
         "date": "2026-10-07",
@@ -34,7 +34,7 @@
         "source": "https://vodarchive.com/vods/tenz",
         "skinVerified": false
       },
-      "discoveredAt": "2026-10-10T01:00:45.182289+00:00",
+      "discoveredAt": "2026-10-11T01:00:14.776414+00:00",
       "discoveredVods": [
         {
           "url": "https://www.youtube.com/watch?v=74PSL5tIq9w",
@@ -42,12 +42,12 @@
           "platform": "YouTube"
         }
       ],
-      "lastScanFinishedAt": "2026-10-10T01:01:10.985653+00:00",
+      "lastScanFinishedAt": "2026-10-11T01:00:15.902700+00:00",
       "lastAutomaticRun": {
-        "status": "error",
-        "finishedAt": "2026-10-10T01:01:10.985653+00:00",
+        "status": "no_new_vod",
+        "finishedAt": "2026-10-11T01:00:15.902700+00:00",
         "videosFound": 1,
-        "videosExamined": 1
+        "videosExamined": 0
       }
     },
     "t3xture": {
@@ -173,5 +173,5 @@
       }
     }
   },
-  "lastAutomaticPublishAt": "2026-10-10T18:54:19.918419+00:00"
+  "lastAutomaticPublishAt": "2026-10-11T01:00:15.902700+00:00"
 }
