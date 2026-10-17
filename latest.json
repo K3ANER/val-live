@@ -153,10 +153,10 @@
         }
       ],
       "sourceCheck": {
-        "status": "already_checked",
-        "message": "새로운 공개 다시보기 없음 · 이전 검증 결과 유지"
+        "status": "error",
+        "message": "공개 다시보기 접근 또는 영상 해석 실패"
       },
-      "discoveredAt": "2026-10-16T19:09:42.984051+00:00",
+      "discoveredAt": "2026-10-17T19:04:02.375910+00:00",
       "discoveredVods": [
         {
           "url": "https://www.youtube.com/watch?v=5jgSqvaEWIo",
@@ -164,14 +164,14 @@
           "platform": "YouTube"
         }
       ],
-      "lastScanFinishedAt": "2026-10-16T19:09:44.328257+00:00",
+      "lastScanFinishedAt": "2026-10-17T19:04:13.757161+00:00",
       "lastAutomaticRun": {
-        "status": "no_new_vod",
-        "finishedAt": "2026-10-16T19:09:44.328257+00:00",
+        "status": "error",
+        "finishedAt": "2026-10-17T19:04:13.757161+00:00",
         "videosFound": 1,
-        "videosExamined": 0
+        "videosExamined": 1
       }
     }
   },
-  "lastAutomaticPublishAt": "2026-10-17T13:10:40.640901+00:00"
+  "lastAutomaticPublishAt": "2026-10-17T19:04:13.757161+00:00"
 }
