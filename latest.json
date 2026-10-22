@@ -137,8 +137,8 @@
     "something": {
       "checkedAt": null,
       "vod": {
-        "url": "https://www.youtube.com/watch?v=jXzIo33hkcg",
-        "title": "Ready for the Masters London! - PRX something [EU] #MatchMVP",
+        "url": "https://www.youtube.com/watch?v=5jgSqvaEWIo",
+        "title": "PRX Something is The BEST DUELIST in Valorant! [APAC]",
         "publishedAt": null
       },
       "weapons": {},
@@ -156,22 +156,22 @@
         "status": "error",
         "message": "공개 다시보기 접근 또는 영상 해석 실패"
       },
-      "discoveredAt": "2026-10-21T19:16:14.119269+00:00",
+      "discoveredAt": "2026-10-22T19:16:27.382544+00:00",
       "discoveredVods": [
         {
-          "url": "https://www.youtube.com/watch?v=jXzIo33hkcg",
-          "title": "Ready for the Masters London! - PRX something [EU] #MatchMVP",
+          "url": "https://www.youtube.com/watch?v=5jgSqvaEWIo",
+          "title": "PRX Something is The BEST DUELIST in Valorant! [APAC]",
           "platform": "YouTube"
         }
       ],
-      "lastScanFinishedAt": "2026-10-21T19:16:26.770097+00:00",
+      "lastScanFinishedAt": "2026-10-22T19:16:37.887092+00:00",
       "lastAutomaticRun": {
         "status": "error",
-        "finishedAt": "2026-10-21T19:16:26.770097+00:00",
+        "finishedAt": "2026-10-22T19:16:37.887092+00:00",
         "videosFound": 1,
         "videosExamined": 1
       }
     }
   },
-  "lastAutomaticPublishAt": "2026-10-22T13:25:51.664203+00:00"
+  "lastAutomaticPublishAt": "2026-10-22T19:16:37.887092+00:00"
 }
