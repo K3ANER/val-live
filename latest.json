@@ -69,14 +69,14 @@
         }
       ],
       "sourceCheck": {
-        "status": "already_checked",
-        "message": "새로운 공개 다시보기 없음 · 이전 검증 결과 유지"
+        "status": "error",
+        "message": "공개 다시보기 접근 또는 영상 해석 실패"
       },
       "candidateVideo": {
         "url": "https://www.youtube.com/watch?v=ZhuepqaKCos",
         "title": "2026 챔피언스 스킨 리뷰"
       },
-      "discoveredAt": "2026-10-23T13:19:36.666480+00:00",
+      "discoveredAt": "2026-10-24T13:14:27.227054+00:00",
       "discoveredVods": [
         {
           "url": "https://www.youtube.com/watch?v=ncLFtjkW9k8",
@@ -84,12 +84,12 @@
           "platform": "YouTube"
         }
       ],
-      "lastScanFinishedAt": "2026-10-23T13:19:37.703489+00:00",
+      "lastScanFinishedAt": "2026-10-24T13:14:48.774650+00:00",
       "lastAutomaticRun": {
-        "status": "no_new_vod",
-        "finishedAt": "2026-10-23T13:19:37.703489+00:00",
+        "status": "error",
+        "finishedAt": "2026-10-24T13:14:48.774650+00:00",
         "videosFound": 1,
-        "videosExamined": 0
+        "videosExamined": 1
       }
     },
     "aspas": {
@@ -173,5 +173,5 @@
       }
     }
   },
-  "lastAutomaticPublishAt": "2026-10-24T07:18:32.122023+00:00"
+  "lastAutomaticPublishAt": "2026-10-24T13:14:48.774650+00:00"
 }
