@@ -118,7 +118,7 @@
         "url": "https://www.youtube.com/watch?v=_KtO6nNeeEQ",
         "title": "ASPAS É IMPARÁVEL DE JETT"
       },
-      "discoveredAt": "2026-10-24T07:18:15.491461+00:00",
+      "discoveredAt": "2026-10-25T07:19:13.472272+00:00",
       "discoveredVods": [
         {
           "url": "https://www.youtube.com/watch?v=N0Ted78Ysu0",
@@ -126,10 +126,10 @@
           "platform": "YouTube"
         }
       ],
-      "lastScanFinishedAt": "2026-10-24T07:18:32.122023+00:00",
+      "lastScanFinishedAt": "2026-10-25T07:19:27.499919+00:00",
       "lastAutomaticRun": {
         "status": "error",
-        "finishedAt": "2026-10-24T07:18:32.122023+00:00",
+        "finishedAt": "2026-10-25T07:19:27.499919+00:00",
         "videosFound": 1,
         "videosExamined": 1
       }
@@ -173,5 +173,5 @@
       }
     }
   },
-  "lastAutomaticPublishAt": "2026-10-25T01:15:10.943806+00:00"
+  "lastAutomaticPublishAt": "2026-10-25T07:19:27.499919+00:00"
 }
