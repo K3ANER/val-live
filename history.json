@@ -1,5 +1,27 @@
 [
   {
+    "player": "t3xture",
+    "url": "https://www.youtube.com/watch?v=ncLFtjkW9k8",
+    "title": "마스크 뒤에 숨겨진 광대",
+    "scanned_at": "2026-11-02T13:47:53.050075+00:00",
+    "status": "error",
+    "candidates": [],
+    "collection_seen": false,
+    "valorant_seen": false,
+    "frames_sampled": 0,
+    "skipped_non_valorant_segments": 0,
+    "analysis_mode": "fast_valorant_only",
+    "probe_interval_seconds": 24,
+    "detail_interval_seconds": 4,
+    "errors": [
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable, android:unavailable)",
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)",
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)",
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)",
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)"
+    ]
+  },
+  {
     "player": "aspas",
     "url": "https://www.youtube.com/watch?v=N0Ted78Ysu0",
     "title": "@aspaszin socials | 🌪️🌪️🌪️🌪️ |",
@@ -1594,20 +1616,6 @@
       "Command '['yt-dlp', '--no-playlist', '--no-warnings', '-f', 'b[height<=480]/b', '--download-sections', '*0-540', '--force-keyframes-at-cuts', '--merge-output-format', 'mp4', '--socket-timeout', '20', '-o', '/tmp/val-live",
       "Command '['yt-dlp', '--no-playlist', '--no-warnings', '-f', 'b[height<=480]/b', '--download-sections', '*667-1207', '--force-keyframes-at-cuts', '--merge-output-format', 'mp4', '--socket-timeout', '20', '-o', '/tmp/val-l",
       "Command '['yt-dlp', '--no-playlist', '--no-warnings', '-f', 'b[height<=480]/b', '--download-sections', '*1334-1874', '--force-keyframes-at-cuts', '--merge-output-format', 'mp4', '--socket-timeout', '20', '-o', '/tmp/val-"
-    ]
-  },
-  {
-    "player": "t3xture",
-    "url": "https://www.twitch.tv/t3xturekr/videos?filter=archives&sort=time",
-    "title": "t3xturekr - Past Broadcasts sorted by Date",
-    "scanned_at": "2026-10-08T07:37:30.228557+00:00",
-    "status": "error",
-    "candidates": [],
-    "collection_seen": false,
-    "errors": [
-      "VOD 구간을 내려받을 수 없습니다.",
-      "VOD 구간을 내려받을 수 없습니다.",
-      "VOD 구간을 내려받을 수 없습니다."
     ]
   }
 ]
