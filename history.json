@@ -1,5 +1,25 @@
 [
   {
+    "player": "aspas",
+    "url": "https://www.youtube.com/watch?v=N0Ted78Ysu0",
+    "title": "@aspaszin socials | 🌪️🌪️🌪️🌪️ |",
+    "scanned_at": "2026-11-02T07:58:42.529479+00:00",
+    "status": "error",
+    "candidates": [],
+    "collection_seen": false,
+    "valorant_seen": false,
+    "frames_sampled": 0,
+    "skipped_non_valorant_segments": 0,
+    "analysis_mode": "fast_valorant_only",
+    "probe_interval_seconds": 24,
+    "detail_interval_seconds": 4,
+    "errors": [
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable, android:unavailable)",
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)",
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)"
+    ]
+  },
+  {
     "player": "TenZ",
     "url": "https://www.youtube.com/watch?v=9mMshlTsa98",
     "title": "GRAND FINALS - LOUD vs. VIT - VCT CHAMPIONS SHANGHAI",
@@ -1581,20 +1601,6 @@
     "url": "https://www.twitch.tv/t3xturekr/videos?filter=archives&sort=time",
     "title": "t3xturekr - Past Broadcasts sorted by Date",
     "scanned_at": "2026-10-08T07:37:30.228557+00:00",
-    "status": "error",
-    "candidates": [],
-    "collection_seen": false,
-    "errors": [
-      "VOD 구간을 내려받을 수 없습니다.",
-      "VOD 구간을 내려받을 수 없습니다.",
-      "VOD 구간을 내려받을 수 없습니다."
-    ]
-  },
-  {
-    "player": "something",
-    "url": "https://www.twitch.tv/smthlikeyou11/videos?filter=archives&sort=time",
-    "title": "smthlikeyou11 - Past Broadcasts sorted by Date",
-    "scanned_at": "2026-10-08T07:37:31.783739+00:00",
     "status": "error",
     "candidates": [],
     "collection_seen": false,
