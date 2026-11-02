@@ -34,7 +34,7 @@
         "source": "https://vodarchive.com/vods/tenz",
         "skinVerified": false
       },
-      "discoveredAt": "2026-11-01T01:44:19.326967+00:00",
+      "discoveredAt": "2026-11-02T01:44:47.189779+00:00",
       "discoveredVods": [
         {
           "url": "https://www.youtube.com/watch?v=9mMshlTsa98",
@@ -42,10 +42,10 @@
           "platform": "YouTube"
         }
       ],
-      "lastScanFinishedAt": "2026-11-01T01:44:44.383291+00:00",
+      "lastScanFinishedAt": "2026-11-02T01:45:11.138159+00:00",
       "lastAutomaticRun": {
         "status": "error",
-        "finishedAt": "2026-11-01T01:44:44.383291+00:00",
+        "finishedAt": "2026-11-02T01:45:11.138159+00:00",
         "videosFound": 1,
         "videosExamined": 1
       }
@@ -173,5 +173,5 @@
       }
     }
   },
-  "lastAutomaticPublishAt": "2026-11-01T19:20:46.499560+00:00"
+  "lastAutomaticPublishAt": "2026-11-02T01:45:11.138159+00:00"
 }
