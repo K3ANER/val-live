@@ -1,5 +1,25 @@
 [
   {
+    "player": "aspas",
+    "url": "https://www.youtube.com/watch?v=N0Ted78Ysu0",
+    "title": "@aspaszin socials | 🌪️🌪️🌪️🌪️ |",
+    "scanned_at": "2026-11-04T07:53:57.981278+00:00",
+    "status": "error",
+    "candidates": [],
+    "collection_seen": false,
+    "valorant_seen": false,
+    "frames_sampled": 0,
+    "skipped_non_valorant_segments": 0,
+    "analysis_mode": "fast_valorant_only",
+    "probe_interval_seconds": 24,
+    "detail_interval_seconds": 4,
+    "errors": [
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable, android:unavailable)",
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)",
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)"
+    ]
+  },
+  {
     "player": "TenZ",
     "url": "https://www.youtube.com/watch?v=9mMshlTsa98",
     "title": "GRAND FINALS - LOUD vs. VIT - VCT CHAMPIONS SHANGHAI",
@@ -1625,15 +1645,5 @@
       "다시보기 짧은 구간 다운로드 실패(제한 또는 공개 영상 아님)",
       "다시보기 짧은 구간 다운로드 실패(제한 또는 공개 영상 아님)"
     ]
-  },
-  {
-    "player": "TenZ",
-    "url": "https://www.twitch.tv/videos/2894146974",
-    "title": "T1 vs. NRG VCT CHAMPIONS",
-    "scanned_at": "2026-10-08T07:30:18.148346+00:00",
-    "status": "no_collection",
-    "candidates": [],
-    "collection_seen": false,
-    "errors": []
   }
 ]
