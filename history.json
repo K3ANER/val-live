@@ -1,5 +1,27 @@
 [
   {
+    "player": "TenZ",
+    "url": "https://www.youtube.com/watch?v=9mMshlTsa98",
+    "title": "GRAND FINALS - LOUD vs. VIT - VCT CHAMPIONS SHANGHAI",
+    "scanned_at": "2026-11-04T01:42:25.990769+00:00",
+    "status": "error",
+    "candidates": [],
+    "collection_seen": false,
+    "valorant_seen": false,
+    "frames_sampled": 0,
+    "skipped_non_valorant_segments": 0,
+    "analysis_mode": "fast_valorant_only",
+    "probe_interval_seconds": 24,
+    "detail_interval_seconds": 4,
+    "errors": [
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable, android:unavailable)",
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)",
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)",
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)",
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)"
+    ]
+  },
+  {
     "player": "something",
     "url": "https://www.youtube.com/watch?v=jXzIo33hkcg",
     "title": "Ready for the Masters London! - PRX something [EU] #MatchMVP",
@@ -1613,19 +1635,5 @@
     "candidates": [],
     "collection_seen": false,
     "errors": []
-  },
-  {
-    "player": "TenZ",
-    "url": "https://www.youtube.com/watch?v=kb0gqpZzynY",
-    "title": "T1 vs NRG",
-    "scanned_at": "2026-10-08T07:37:21.785490+00:00",
-    "status": "error",
-    "candidates": [],
-    "collection_seen": false,
-    "errors": [
-      "Command '['yt-dlp', '--no-playlist', '--no-warnings', '-f', 'b[height<=480]/b', '--download-sections', '*0-540', '--force-keyframes-at-cuts', '--merge-output-format', 'mp4', '--socket-timeout', '20', '-o', '/tmp/val-live",
-      "Command '['yt-dlp', '--no-playlist', '--no-warnings', '-f', 'b[height<=480]/b', '--download-sections', '*18887-19427', '--force-keyframes-at-cuts', '--merge-output-format', 'mp4', '--socket-timeout', '20', '-o', '/tmp/va",
-      "Command '['yt-dlp', '--no-playlist', '--no-warnings', '-f', 'b[height<=480]/b', '--download-sections', '*37774-38314', '--force-keyframes-at-cuts', '--merge-output-format', 'mp4', '--socket-timeout', '20', '-o', '/tmp/va"
-    ]
   }
 ]
