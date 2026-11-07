@@ -137,8 +137,8 @@
     "something": {
       "checkedAt": null,
       "vod": {
-        "url": "https://www.youtube.com/watch?v=thgdfy27uk8",
-        "title": "HES BACK!  - PRX something [EU] #TeamMVP",
+        "url": "https://www.youtube.com/watch?v=5jgSqvaEWIo",
+        "title": "PRX Something is The BEST DUELIST in Valorant! [APAC]",
         "publishedAt": null
       },
       "weapons": {},
@@ -156,22 +156,22 @@
         "status": "error",
         "message": "공개 다시보기 접근 또는 영상 해석 실패"
       },
-      "discoveredAt": "2026-11-06T23:30:10.360326+00:00",
+      "discoveredAt": "2026-11-07T22:16:44.555119+00:00",
       "discoveredVods": [
         {
-          "url": "https://www.youtube.com/watch?v=thgdfy27uk8",
-          "title": "HES BACK!  - PRX something [EU] #TeamMVP",
+          "url": "https://www.youtube.com/watch?v=5jgSqvaEWIo",
+          "title": "PRX Something is The BEST DUELIST in Valorant! [APAC]",
           "platform": "YouTube"
         }
       ],
-      "lastScanFinishedAt": "2026-11-06T23:30:22.042956+00:00",
+      "lastScanFinishedAt": "2026-11-07T22:16:56.123633+00:00",
       "lastAutomaticRun": {
         "status": "error",
-        "finishedAt": "2026-11-06T23:30:22.042956+00:00",
+        "finishedAt": "2026-11-07T22:16:56.123633+00:00",
         "videosFound": 1,
         "videosExamined": 1
       }
     }
   },
-  "lastAutomaticPublishAt": "2026-11-07T13:32:50.049089+00:00"
+  "lastAutomaticPublishAt": "2026-11-07T22:16:56.123633+00:00"
 }
