@@ -1,5 +1,24 @@
 [
   {
+    "player": "something",
+    "url": "https://www.youtube.com/watch?v=jXzIo33hkcg",
+    "title": "Ready for the Masters London! - PRX something [EU] #MatchMVP",
+    "scanned_at": "2026-11-11T19:51:34.655094+00:00",
+    "status": "error",
+    "candidates": [],
+    "collection_seen": false,
+    "valorant_seen": false,
+    "frames_sampled": 0,
+    "skipped_non_valorant_segments": 0,
+    "analysis_mode": "fast_valorant_only",
+    "probe_interval_seconds": 24,
+    "detail_interval_seconds": 4,
+    "errors": [
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable, android:unavailable)",
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)"
+    ]
+  },
+  {
     "player": "aspas",
     "url": "https://www.youtube.com/watch?v=N0Ted78Ysu0",
     "title": "@aspaszin socials | 🌪️🌪️🌪️🌪️ |",
@@ -1624,26 +1643,6 @@
       "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable, android:unavailable)",
       "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)",
       "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)",
-      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)",
-      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)"
-    ]
-  },
-  {
-    "player": "aspas",
-    "url": "https://www.youtube.com/watch?v=N0Ted78Ysu0",
-    "title": "@aspaszin socials | 🌪️🌪️🌪️🌪️ |",
-    "scanned_at": "2026-10-12T07:22:29.196783+00:00",
-    "status": "error",
-    "candidates": [],
-    "collection_seen": false,
-    "valorant_seen": false,
-    "frames_sampled": 0,
-    "skipped_non_valorant_segments": 0,
-    "analysis_mode": "fast_valorant_only",
-    "probe_interval_seconds": 24,
-    "detail_interval_seconds": 4,
-    "errors": [
-      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable, android:unavailable)",
       "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)",
       "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)"
     ]
