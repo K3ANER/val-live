@@ -3,6 +3,26 @@
     "player": "aspas",
     "url": "https://www.youtube.com/watch?v=N0Ted78Ysu0",
     "title": "@aspaszin socials | 🌪️🌪️🌪️🌪️ |",
+    "scanned_at": "2026-11-16T07:14:35.155084+00:00",
+    "status": "error",
+    "candidates": [],
+    "collection_seen": false,
+    "valorant_seen": false,
+    "frames_sampled": 0,
+    "skipped_non_valorant_segments": 0,
+    "analysis_mode": "fast_valorant_only",
+    "probe_interval_seconds": 24,
+    "detail_interval_seconds": 4,
+    "errors": [
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable, android:unavailable)",
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)",
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)"
+    ]
+  },
+  {
+    "player": "aspas",
+    "url": "https://www.youtube.com/watch?v=N0Ted78Ysu0",
+    "title": "@aspaszin socials | 🌪️🌪️🌪️🌪️ |",
     "scanned_at": "2026-11-15T07:09:34.834596+00:00",
     "status": "error",
     "candidates": [],
@@ -1615,28 +1635,6 @@
     "detail_interval_seconds": 4,
     "errors": [
       "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable, android:unavailable)",
-      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)"
-    ]
-  },
-  {
-    "player": "t3xture",
-    "url": "https://www.youtube.com/watch?v=ncLFtjkW9k8",
-    "title": "마스크 뒤에 숨겨진 광대",
-    "scanned_at": "2026-10-14T13:16:22.205471+00:00",
-    "status": "error",
-    "candidates": [],
-    "collection_seen": false,
-    "valorant_seen": false,
-    "frames_sampled": 0,
-    "skipped_non_valorant_segments": 0,
-    "analysis_mode": "fast_valorant_only",
-    "probe_interval_seconds": 24,
-    "detail_interval_seconds": 4,
-    "errors": [
-      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable, android:unavailable)",
-      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)",
-      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)",
-      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)",
       "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)"
     ]
   }
