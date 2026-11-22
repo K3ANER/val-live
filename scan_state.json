@@ -74,5 +74,10 @@
     "scanned_at": "2026-11-06T23:30:10.360326+00:00",
     "status": "error",
     "revision": "latest-vod-priority-v2"
+  },
+  "something|https://www.youtube.com/watch?v=2wi1owcJJis": {
+    "scanned_at": "2026-11-22T19:57:42.637086+00:00",
+    "status": "error",
+    "revision": "latest-vod-priority-v2"
   }
 }
