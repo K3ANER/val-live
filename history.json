@@ -1,5 +1,25 @@
 [
   {
+    "player": "aspas",
+    "url": "https://www.youtube.com/watch?v=N0Ted78Ysu0",
+    "title": "@aspaszin socials | 🌪️🌪️🌪️🌪️ |",
+    "scanned_at": "2026-11-23T08:11:11.319235+00:00",
+    "status": "error",
+    "candidates": [],
+    "collection_seen": false,
+    "valorant_seen": false,
+    "frames_sampled": 0,
+    "skipped_non_valorant_segments": 0,
+    "analysis_mode": "fast_valorant_only",
+    "probe_interval_seconds": 24,
+    "detail_interval_seconds": 4,
+    "errors": [
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable, android:unavailable)",
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)",
+      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)"
+    ]
+  },
+  {
     "player": "something",
     "url": "https://www.youtube.com/watch?v=2wi1owcJJis",
     "title": "This Might Actually Be Our Final Game?! (IGL POV Masterclass vs Counterfeit | Swiss Stage: R2)",
@@ -1608,25 +1628,6 @@
       "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)",
       "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)",
       "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)",
-      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)"
-    ]
-  },
-  {
-    "player": "something",
-    "url": "https://www.youtube.com/watch?v=5jgSqvaEWIo",
-    "title": "PRX Something is The BEST DUELIST in Valorant! [APAC]",
-    "scanned_at": "2026-10-17T19:04:04.203871+00:00",
-    "status": "error",
-    "candidates": [],
-    "collection_seen": false,
-    "valorant_seen": false,
-    "frames_sampled": 0,
-    "skipped_non_valorant_segments": 0,
-    "analysis_mode": "fast_valorant_only",
-    "probe_interval_seconds": 24,
-    "detail_interval_seconds": 4,
-    "errors": [
-      "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable, android:unavailable)",
       "유튜브 구간 추출 실패(시도: android:unavailable, web_safari:unavailable, default:unavailable)"
     ]
   }
