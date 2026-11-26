@@ -137,8 +137,8 @@
     "something": {
       "checkedAt": null,
       "vod": {
-        "url": "https://www.youtube.com/watch?v=nuqn_bfylxM",
-        "title": "13 Minutes of NEW PRX PRIMMIE Faced PRX Something in Rank ! VALORANT",
+        "url": "https://www.youtube.com/watch?v=jXzIo33hkcg",
+        "title": "Ready for the Masters London! - PRX something [EU] #MatchMVP",
         "publishedAt": null
       },
       "weapons": {},
@@ -156,22 +156,22 @@
         "status": "error",
         "message": "공개 다시보기 접근 또는 영상 해석 실패"
       },
-      "discoveredAt": "2026-11-25T21:58:20.893380+00:00",
+      "discoveredAt": "2026-11-26T21:55:01.949921+00:00",
       "discoveredVods": [
         {
-          "url": "https://www.youtube.com/watch?v=nuqn_bfylxM",
-          "title": "13 Minutes of NEW PRX PRIMMIE Faced PRX Something in Rank ! VALORANT",
+          "url": "https://www.youtube.com/watch?v=jXzIo33hkcg",
+          "title": "Ready for the Masters London! - PRX something [EU] #MatchMVP",
           "platform": "YouTube"
         }
       ],
-      "lastScanFinishedAt": "2026-11-25T21:58:32.060625+00:00",
+      "lastScanFinishedAt": "2026-11-26T21:55:11.525172+00:00",
       "lastAutomaticRun": {
         "status": "error",
-        "finishedAt": "2026-11-25T21:58:32.060625+00:00",
+        "finishedAt": "2026-11-26T21:55:11.525172+00:00",
         "videosFound": 1,
         "videosExamined": 1
       }
     }
   },
-  "lastAutomaticPublishAt": "2026-11-26T08:52:39.680128+00:00"
+  "lastAutomaticPublishAt": "2026-11-26T21:55:11.525172+00:00"
 }
